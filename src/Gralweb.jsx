@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 
 // Components Principales
 import Header from './componentes/header/Header';
-import Main from './componentes/Main';
+import Main from './componentes/main/Main';
 import Footer from './componentes/footer/Footer';
 
 // Componentes - Pages
+// Portafolio Page
 import FetchPortafolioCarts from './componentes/pages/portafolio/FetchPortafolioCarts';
 import RenderPortafolioCarts from './componentes/pages/portafolio/RenderPortafolioCarts';
 
@@ -20,33 +21,74 @@ class Gralweb extends Component {
 		super(props);
 
 		this.state = {
-			headerLocation: "Portafolio",
+			headerLocation: 'Portafolio',
 			scaleAnim: false,
-			hiddenLoader: false,
-			portafolioCarts: []
+			portafolioCarts: null,
+			menuOpen: false
 		}
 	}
 
+	LoaderApp = () => {
+		return (
+			<div className='app-main-loader' >
+			    <div id='app-main-loader' className='app-form-btn-load process'></div>
+			</div>
+		)
+	}
+
+	handleClickHeader = () => {
+		this.setState({
+			menuOpen: !this.state.menuOpen
+		})
+	}
+
+	handleUpdateCarts = () => {
+		if (this.state.portafolioCarts === null) {
+			const fetching = FetchPortafolioCarts()
+
+			fetching.then(r => {
+				const { datos } = r 
+
+				this.setState({
+					scaleAnim: true,
+					portafolioCarts: datos
+				})
+			})			
+		} else {
+			return;
+		}
+	}
+
+	RenderPortafolio = (Carts, scaleAnim) => {
+		return (
+			Carts ?
+			<div className='app-main-cont'>
+				{
+					RenderPortafolioCarts( Carts, scaleAnim )
+				}
+			</div> :
+			this.LoaderApp()
+		)
+	}
+
 	componentDidMount() {
-		setTimeout(() => {
-			this.setState({
-				hiddenLoader: true,
-				scaleAnim: true,
-				portafolioCarts: FetchPortafolioCarts()
-			});
-		}, 500);
+		this.handleUpdateCarts()
 	}
 
 	render () {
+		const { portafolioCarts, scaleAnim, headerLocation, menuOpen } = this.state
+
 		return (
 			<section>
-				<Header headerLocation={ this.state.headerLocation } />
+				<Header
+						headerLocation={ headerLocation }
+						menuOpen={ menuOpen }
+						onClick={ () => this.handleClickHeader() }
+				/>
 
-				<Main hiddenLoader={ this.state.hiddenLoader ? 'process' : null } >
+				<Main>
 					{
-						this.state.hiddenLoader
-						&&
-						RenderPortafolioCarts(this.state.portafolioCarts, this.state.scaleAnim)
+						this.RenderPortafolio(portafolioCarts, scaleAnim)
 					}
 				</Main>
 			
