@@ -8,8 +8,18 @@ import Footer from './componentes/footer/Footer';
 
 // Componentes - Pages
 // Portafolio Page
-import FetchPortafolioCarts from './componentes/pages/portafolio/FetchPortafolioCarts';
-import RenderPortafolioCarts from './componentes/pages/portafolio/RenderPortafolioCarts';
+// import FetchPortafolioCarts from './componentes/pages/portafolio/FetchPortafolioCarts';
+// import RenderPortafolioCarts from './componentes/pages/portafolio/RenderPortafolioCarts';
+
+// DevWeb Page
+// import FetchServicios from './componentes/pages/servicios/FetchServicios';
+// import RenderServiciosCarts from './componentes/pages/servicios/RenderServiciosCarts';
+
+// Contactos Page
+import ContactForm from './componentes/pages/contactos/index'
+
+// Bio Page
+// import RenderBiografiaData from './componentes/pages/biografia/index';
 
 // Styles
 import './dependencias/icofont.min.css'
@@ -22,9 +32,11 @@ class Gralweb extends Component {
 
 		this.state = {
 			headerLocation: 'Portafolio',
+			menuOpen: false,
 			scaleAnim: false,
 			portafolioCarts: null,
-			menuOpen: false
+			serviciosCarts: null
+
 		}
 	}
 
@@ -33,7 +45,7 @@ class Gralweb extends Component {
 			<div className='app-main-loader' >
 			    <div id='app-main-loader' className='app-form-btn-load process'></div>
 			</div>
-		)
+		);
 	}
 
 	handleClickHeader = () => {
@@ -42,41 +54,84 @@ class Gralweb extends Component {
 		})
 	}
 
-	handleUpdateCarts = () => {
-		if (this.state.portafolioCarts === null) {
-			const fetching = FetchPortafolioCarts()
-
-			fetching.then(r => {
-				const { datos } = r 
-
-				this.setState({
-					scaleAnim: true,
-					portafolioCarts: datos
-				})
-			})			
-		} else {
-			return;
-		}
+	handleUpdateHeaderLocation = locacion => {
+		this.setState({
+			headerLocation: locacion
+		})
 	}
 
-	RenderPortafolio = (Carts, scaleAnim) => {
-		return (
-			Carts ?
-			<div className='app-main-cont'>
-				{
-					RenderPortafolioCarts( Carts, scaleAnim )
-				}
-			</div> :
-			this.LoaderApp()
-		)
-	}
+	// handleUpdateServicios = () => {
+	// 	this.setState({
+	// 		scaleAnim: true,
+	// 		serviciosCarts: FetchServicios
+	// 	})
+	// }
+
+	// RenderServicios = (Carts, scaleAnim) => {
+	// 	return (
+	// 		Carts ?
+	// 		<div className='app-main-cont'>
+	// 			{
+	// 				RenderServiciosCarts( Carts, scaleAnim )
+	// 			}
+	// 		</div> :
+	// 		this.LoaderApp()
+	// 	);
+	// }
+
+	// handleUpdatePortafolio = () => {
+	// 	if (this.state.portafolioCarts === null) {
+	// 		const fetching = FetchPortafolioCarts()
+
+	// 		fetching.then(r => {
+	// 			const { datos } = r 
+
+	// 			this.setState({
+	// 				scaleAnim: true,
+	// 				portafolioCarts: datos
+	// 			})
+	// 		})			
+	// 	} else {
+	// 		return;
+	// 	}
+	// }
+
+	// RenderPortafolio = (Carts, scaleAnim) => {
+	// 	return (
+	// 		Carts ?
+	// 		<div className='app-main-cont'>
+	// 			{
+	// 				RenderPortafolioCarts( Carts, scaleAnim )
+	// 			}
+	// 		</div> :
+	// 		this.LoaderApp()
+	// 	);
+	// }
+
+	// RenderBiografia = () => {
+	// 	return (
+	// 		<div className='app-main-cont'>
+	// 			{
+	// 				RenderBiografiaData()
+	// 			}
+	// 		</div>
+	// 	);
+	// }
 
 	componentDidMount() {
-		this.handleUpdateCarts()
+		// this.handleUpdateCarts()
+		setTimeout(() => {
+			// this.handleUpdateServicios()
+			this.handleUpdateHeaderLocation('Contactos')
+		}, 500)
 	}
 
+	// this.RenderPortafolio(portafolioCarts, scaleAnim)
+	// this.RenderServicios(serviciosCarts, scaleAnim)
+	// this.RenderBiografia()
+
 	render () {
-		const { portafolioCarts, scaleAnim, headerLocation, menuOpen } = this.state
+		const { serviciosCarts, scaleAnim, headerLocation, menuOpen } = this.state
 
 		return (
 			<section>
@@ -87,8 +142,8 @@ class Gralweb extends Component {
 				/>
 
 				<Main>
-					{
-						this.RenderPortafolio(portafolioCarts, scaleAnim)
+					{ 
+						ContactForm()
 					}
 				</Main>
 			

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Portafolio = (props) => {
+const Portafolio = props => {
     const { scaleAnim, img, titulo } = props
 
     return (
