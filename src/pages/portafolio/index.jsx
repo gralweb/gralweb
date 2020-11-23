@@ -4,9 +4,9 @@ const Portafolio = props => {
     const { scaleAnim, img, titulo } = props
 
     return (
-        <div className={'app-cont-item ' +  scaleAnim}>
+        <div className={ `app-cont-item ${ scaleAnim }` }>
             <figure className='app-item-img'>
-                <img src={ 'http://localhost:3000/assets/' + img } title={ titulo } alt={ titulo } />
+                <img src={ `http://localhost:3000/assets/${ img }` } title={ titulo } alt={ titulo } />
             </figure>
 
             <figcaption className='app-item-text'>
@@ -14,7 +14,7 @@ const Portafolio = props => {
                     { titulo }
                 </p>
                 <p>
-                    <a href={ 'portafolio/' + titulo }>view</a>
+                    <a href={ `portafolio/${ titulo }` }>view</a>
                 </p>
             </figcaption>
         </div>

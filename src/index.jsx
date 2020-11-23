@@ -4,10 +4,14 @@ import './index.css';
 import Gralweb from './Gralweb';
 import * as serviceWorker from './serviceWorker';
 
+// Importacion del Store - State Manager
+import { ContextProvider } from '@talpor/react-context-manager';
+import { actions, ctx, store } from './store';
+
 ReactDOM.render(
-	<React.StrictMode>
+	<ContextProvider actions={actions} store={store} context={ctx} >
 		<Gralweb />
-	</React.StrictMode>,
+	</ContextProvider>,
 	document.getElementById('root')
 );
 

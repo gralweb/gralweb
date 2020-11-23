@@ -5,7 +5,7 @@ const RenderBiografiaData = () => {
   		<div className='app-bio'>
             <div className='app-bio-cont-foto'>
                 <span className='icofont-robot-face app-bio-sep'></span>
-                <img className='app-bio-foto' src='http://localhost:3000/logo/face.jpg' />
+                <img className='app-bio-foto' src='http://localhost:3000/logo/face.jpg' alt='Foto George Alviarez' />
             </div>
             <div className='app-bio-cont-text'>
                 <p className='app-bio-text'>

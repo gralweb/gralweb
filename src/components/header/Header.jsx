@@ -2,11 +2,11 @@
 import React from 'react';
 
 // Componentes
-import navUser from './HeaderNavU';
-import navNormal from './HeaderNavN';
+// import navUser from './HeaderNavU';
+// import navNormal from './HeaderNavN';
 
 const Header = props => {
-    const { headerLocation, menuOpen, onClick } = props
+    const { headerLocation, menuOpen, onClick, children } = props
 
     return (
         <header id="app-header" className="app-header">
@@ -48,7 +48,7 @@ const Header = props => {
                 </div>
 
                 {
-                    (window.sessionStorage.getItem('login_estado') === 'user_valid') ? navUser(menuOpen) : navNormal(menuOpen)
+                    children
                 }
             </nav>
         </header>
