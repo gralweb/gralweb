@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Portafolio = props => {
-    const { scaleAnim, img, titulo } = props
+// Componentes
+import PortafolioCart from './PortafolioCart';
+import FetchPortafolioCarts from './FetchPortafolioCarts';
 
-    return (
-        <div className={ `app-cont-item ${ scaleAnim }` }>
-            <figure className='app-item-img'>
-                <img src={ `http://localhost:3000/assets/${ img }` } title={ titulo } alt={ titulo } />
-            </figure>
+const RenderPortafolio = () => {
+	const [ scaleAnim, setScaleAnim ] = useState(false);
+	const [ portafolioData, setPortafolioData ] = useState(null);
 
-            <figcaption className='app-item-text'>
-                <p>
-                    { titulo }
-                </p>
-                <p>
-                    <a href={ `portafolio/${ titulo }` }>view</a>
-                </p>
-            </figcaption>
-        </div>
-    );
+	useEffect(() => {
+		setScaleAnim(true)
+	}, [ setScaleAnim ]);
+
+	return (
+		portafolioData.map((cart, index) => {
+			return (
+				<PortafolioCart
+					key={ cart.id }
+					titulo={ cart.titulo }
+					img={ cart.foto }
+					scaleAnim={ scaleAnim ? 'app-cont-item-scale' : null }
+				/>
+			)
+		})
+	);
 }
 
-export default Portafolio;
+export default RenderPortafolio;

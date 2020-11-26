@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const logoNormal = () => {
     return (
-        <a href='/'>
+        <Link to='/portafolio'>
             <img
                 src='http://localhost:3000/logo/logo_rojo.png'
                 title='Gralweb'
                 alt='Logo GralWeb'
             />
-        </a>
+        </Link>
     );
 }
 
@@ -23,7 +24,7 @@ const logoExit = () => {
     );
 }
 
-const Footer = props => {
+const Footer = () => {
   	return (
         <footer id='app-footer' className='app-footer'>
         	<div className='app-footer-content'>

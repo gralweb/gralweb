@@ -1,21 +1,21 @@
 // Dependecias
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Componentes
-// import navUser from './HeaderNavU';
-// import navNormal from './HeaderNavN';
+import HeaderBtnMenu from './HeaderBtnMenu';
+import HeaderNav from './HeaderNav';
 
-const Header = props => {
-    const { headerLocation, menuOpen, onClick, children } = props
-
+const Header = ({ headerLocation, menuOpen, onClick }) => {
     return (
         <header id="app-header" className="app-header">
         	<nav className='app-header-nav'>
+
                 <div className='app-nav-locacion'>
                     <p className='app-location-item app-logo-cat'>
-                        <a href='/'>
+                        <Link to='/portafolio'>
                             <img src='http://localhost:3000/logo/gral_rojo.png' id='app-location-logo' alt='Gral'/>
-                        </a>
+                        </Link>
                         <span className='app-location-sep'>|</span>
                         <span id='app-location'>{ headerLocation }</span>
                     </p>
@@ -23,33 +23,18 @@ const Header = props => {
 
                 <div id='app-nav-logo' className='app-content-logo app-logo-cat'>
                     <figure className='app-logo-img'>
-                        <a href='/'>
+                        <Link to='/portafolio'>
                             <img src='http://localhost:3000/logo/logo_rojo.png' title='GralWeb' alt='GralWeb'/>
-                        </a>
+                        </Link>
                     </figure>
                 </div>
+                
+                <HeaderBtnMenu menuState={ menuOpen } eventClick={ onClick } type='open' />
 
-                <div 
-                    className={ menuOpen ? 'app-nav-btn-menu app-btn-menu-hidden' : 'app-nav-btn-menu' }
-                    onClick={ onClick }
-                >
-                    <span className='app-btn-menu'>
-                        <i className='icofont-navigation-menu'></i>
-                    </span>
-                </div>
+                <HeaderBtnMenu menuState={ menuOpen } eventClick={ onClick } type='close' />
 
-                <div
-                    className={ menuOpen ? 'app-nav-btn-menu' : 'app-nav-btn-menu app-btn-menu-hidden' }
-                    onClick={ onClick } 
-                >
-                    <span className='app-btn-menu'>
-                        <i className='icofont-close'></i>
-                    </span>
-                </div>
+                <HeaderNav menuState={ menuOpen } eventClick={ onClick } />
 
-                {
-                    children
-                }
             </nav>
         </header>
     );

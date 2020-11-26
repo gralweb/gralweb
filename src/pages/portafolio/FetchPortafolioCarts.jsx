@@ -1,14 +1,12 @@
 import React from 'react';
-import { ctx } from './../../store';
+// import { ctx } from './../../store';
 
 import { API_REST_URL } from './../../components/constans';
 
-function FetchPortafolioCarts () {
-	// const store = React.createContext(ctx.store);
-	// const actions = React.createContext(ctx.actions);
-
-	console.log(ctx.store);
-
+const FetchPortafolioCarts = () => {
+	fetch(API_REST_URL).then(dataCrud => {
+		return dataCrud.json()
+	})
 }
 
 export default FetchPortafolioCarts;

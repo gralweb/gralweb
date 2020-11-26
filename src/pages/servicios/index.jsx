@@ -1,26 +1,80 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const DevWeb = props => {
-	const { scaleAnim, plan, estilo, precio } = props
-	const { serUno, serDos, serTres, serCuatro, serCinco } = props
+// Componentes
+import ServiciosCart from './ServiciosCart';
+import FetchServicios from './FetchServicios';
 
-	return (
-		<div className={ 'app-cont-item app-serv-item ' + scaleAnim }>
-            <figure className='app-item-serv-title'>
-                <p>{ plan }</p>
-            </figure>
-            <figcaption className={ 'app-item-serv-cont ' + estilo }>
-                <ul>
-                    <li className='app-serv-precio'><i className='icofont-dollar'></i><span>{ precio }</span></li>
-                    <li><i className='icofont-check-alt'></i> <span> { serUno }</span></li>
-                    <li><i className='icofont-check-alt'></i> <span> { serDos }</span></li>
-                    <li><i className='icofont-check-alt'></i> <span> { serTres }</span></li>
-                    <li><i className='icofont-check-alt'></i> <span> { serCuatro }</span></li>
-                    <li className='app-serv-last'><i className='icofont-check-alt'></i> <span> { serCinco }</span></li>
-                </ul>
-            </figcaption>
-        </div>
-	);
+class RenderServicios extends Component {
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			scaleAnim: false,
+			serviciosCarts: null
+		}
+	}
+
+	LoaderApp = () => {
+		return (
+			<div className='app-main-loader' >
+			    <div id='app-main-loader' className='app-form-btn-load process'></div>
+			</div>
+		);
+	}
+
+	RenderServiciosData = ( serviciosCarts, scaleAnim ) => {
+		return (
+			serviciosCarts.map((serv, index) => {
+				return (
+					<ServiciosCart
+						scaleAnim={ scaleAnim ? 'app-cont-item-scale' : null }
+						key={ serv.plan }
+						plan={ serv.plan }
+						estilo={ serv.estilo }
+						precio={ serv.precio }
+						serUno={ serv.ser_1 }
+						serDos={ serv.ser_2 }
+						serTres={ serv.ser_3 }
+						serCuatro={ serv.ser_4 }
+						serCinco={ serv.ser_5}
+					/>
+				)
+			})
+		)
+	}
+
+	handleUpdateServicios = () => {
+		this.setState({
+			scaleAnim: true,
+			serviciosCarts: FetchServicios
+		})
+	}
+
+	comprobarDatos = () => {
+		const { serviciosCarts, scaleAnim } = this.state
+
+		return (
+			serviciosCarts ?
+			<div className='app-main-cont'>
+				{
+					this.RenderServiciosData( serviciosCarts, scaleAnim )
+				}
+			</div> :
+			this.LoaderApp()
+
+		);
+	}
+
+	componentDidMount() {
+		this.handleUpdateServicios()
+	}
+
+	render () {
+		return (
+			this.comprobarDatos()
+		);
+	}
 }
 
-export default DevWeb;
+export default RenderServicios;

@@ -3,7 +3,7 @@ import React from 'react';
 // Componentes
 import ContactFormArea from './ContactFormArea';
 
-const ContactForm = () => {
+const RenderContactos = () => {
 	return (
 		<div className='app-main-cont'>
 			<div className='app-contac-form'>
@@ -54,4 +54,4 @@ const ContactForm = () => {
 	);
 }
 
-export default ContactForm;
+export default RenderContactos;
