@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 // Componentes
-import PortafolioCart from './PortafolioCart';
+import LoaderApp from './../../components/LoaderApp';
 import FetchPortafolioCarts from './FetchPortafolioCarts';
+import RenderPortafolioData from './RenderPortafolioData';
 
 const RenderPortafolio = () => {
 	const [ scaleAnim, setScaleAnim ] = useState(false);
@@ -10,19 +11,25 @@ const RenderPortafolio = () => {
 
 	useEffect(() => {
 		setScaleAnim(true)
-	}, [ setScaleAnim ]);
+
+		if ( portafolioData === null ) {
+			FetchPortafolioCarts().then(r => {
+				const { datos } = r
+				
+				setPortafolioData(datos)
+			})
+		}
+
+	}, [ setScaleAnim, portafolioData, setPortafolioData ]);
 
 	return (
-		portafolioData.map((cart, index) => {
-			return (
-				<PortafolioCart
-					key={ cart.id }
-					titulo={ cart.titulo }
-					img={ cart.foto }
-					scaleAnim={ scaleAnim ? 'app-cont-item-scale' : null }
-				/>
-			)
-		})
+		portafolioData ?
+		<div className='app-main-cont'>
+			{
+				RenderPortafolioData( portafolioData, scaleAnim )
+			}
+		</div> :
+		LoaderApp()
 	);
 }
 

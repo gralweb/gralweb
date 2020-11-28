@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PortafolioCart = ({ scaleAnim, img, titulo }) => {
     return (
@@ -12,7 +13,7 @@ const PortafolioCart = ({ scaleAnim, img, titulo }) => {
                     { titulo }
                 </p>
                 <p>
-                    <a href={ `portafolio/${ titulo }` }>view</a>
+                    <Link to={ `portafolio/${ titulo }` }>view</Link>
                 </p>
             </figcaption>
         </div>

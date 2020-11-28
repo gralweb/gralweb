@@ -6,8 +6,9 @@ import RenderPortafolio from './../pages/portafolio';
 import RenderServicios from './../pages/servicios';
 import RenderContactos from './../pages/contactos';
 import RenderBiografia from './../pages/biografia';
+import RenderPresentacion from './../pages/presentacion';
 
-const Routing = () => {
+const Routing = ({ handleLocationHeader }) => {
 	return (
 		<Switch>
 			<Redirect 
@@ -18,27 +19,27 @@ const Routing = () => {
 			<Route
 				exact
 				path='/portafolio'
-				component={RenderPortafolio}
+				render={ () => <RenderPortafolio headerLocation={ handleLocationHeader } /> }
 			/>
 			<Route
 				exact
 				path='/services'
-				component={RenderServicios}
+				render={ () => <RenderServicios headerLocation={ handleLocationHeader } /> }
 			/>
 			<Route
 				exact
 				path='/contactos'
-				component={RenderContactos}
+				render={ () => <RenderContactos headerLocation={ handleLocationHeader } /> }
 			/>
 			<Route
 				exact
 				path='/bio'
-				component={RenderBiografia}
+				render={ () => <RenderBiografia headerLocation={ handleLocationHeader } /> }
 			/>
 			<Route
 				exact
 				path='/portafolio/:name'
-				render={ routeProps => console.log(routeProps.match.params) }
+				render={ routeProps => <RenderPresentacion nameCart={ routeProps.match.params.name } /> }
 			/>
 		</Switch>
 	);
