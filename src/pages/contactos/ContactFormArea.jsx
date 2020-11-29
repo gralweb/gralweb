@@ -9,7 +9,7 @@ const ContactFormInput = ( type, name ) => {
     return (
         <input 
             type={ type }
-            name={ 'app-form-' + name }
+            name={ `app-form-${ name }` }
             className='app-contac-input'
         />
     );
@@ -18,24 +18,26 @@ const ContactFormInput = ( type, name ) => {
 const ContactFormTextArea = name => {
     return (
         <textarea 
-            name={ 'app-form-' + name } 
+            name={ `app-form-${ name }` } 
             className='app-contac-input'
-        ></textarea>
+        >
+        </textarea>
     );
 }
 
-const ContactFormArea = props => {
-    const { label, type, required, name } = props
-
+const ContactFormArea = ({ label, type, required, name }) => {
     return (
         <div id={ ( type === 'textArea' ) ? 'app-form-textarea' : null } className='app-form-line'>
             <div className='app-form-camp'>
-                <h5>{ required ? `${label} *` : label }</h5>
+                <h5>{ required ? `${ label } *` : label }</h5>
             </div>
+
             <div className={ ( type === 'textArea' ) ? 'app-form-input app-form-textarea' : 'app-form-input' }>
                 { 
                     ( type === 'textArea' ) ? 
+
                     ContactFormTextArea( name ) :
+
                     ContactFormInput( type, name )
                 }
             </div>

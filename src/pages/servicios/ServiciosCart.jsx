@@ -5,11 +5,11 @@ const ServiciosCart = props => {
 	const { serUno, serDos, serTres, serCuatro, serCinco } = props
 
 	return (
-		<div className={ 'app-cont-item app-serv-item ' + scaleAnim }>
+		<div className={ `app-cont-item app-serv-item ${scaleAnim}` }>
             <figure className='app-item-serv-title'>
                 <p>{ plan }</p>
             </figure>
-            <figcaption className={ 'app-item-serv-cont ' + estilo }>
+            <figcaption className={ `app-item-serv-cont ${estilo}` }>
                 <ul>
                     <li className='app-serv-precio'><i className='icofont-dollar'></i><span>{ precio }</span></li>
                     <li><i className='icofont-check-alt'></i> <span> { serUno }</span></li>

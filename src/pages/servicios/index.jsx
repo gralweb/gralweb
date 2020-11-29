@@ -6,14 +6,17 @@ import LoaderApp from './../../components/LoaderApp';
 import FetchServicios from './FetchServicios';
 import RenderServiciosData from './RenderServiciosData';
 
-const RenderServicios = () => {
+const RenderServicios = ({ headerLocation }) => {
 	const [scaleAnim, setScaleAnim] = useState(false);
 	const [serviciosCarts, setServiciosCarts] = useState(null);
 
 	useEffect(() => {
 		setScaleAnim(true);
+
+		headerLocation.servicios()
+
 		setServiciosCarts(FetchServicios);
-	}, [setScaleAnim, setServiciosCarts])
+	}, [setScaleAnim, headerLocation, setServiciosCarts])
 
 	return (
 		serviciosCarts ?

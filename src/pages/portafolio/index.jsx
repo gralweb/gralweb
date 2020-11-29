@@ -5,12 +5,14 @@ import LoaderApp from './../../components/LoaderApp';
 import FetchPortafolioCarts from './FetchPortafolioCarts';
 import RenderPortafolioData from './RenderPortafolioData';
 
-const RenderPortafolio = () => {
+const RenderPortafolio = ({ headerLocation }) => {
 	const [ scaleAnim, setScaleAnim ] = useState(false);
 	const [ portafolioData, setPortafolioData ] = useState(null);
 
 	useEffect(() => {
 		setScaleAnim(true)
+		
+		headerLocation.portafolio()
 
 		if ( portafolioData === null ) {
 			FetchPortafolioCarts().then(r => {
@@ -20,7 +22,7 @@ const RenderPortafolio = () => {
 			})
 		}
 
-	}, [ setScaleAnim, portafolioData, setPortafolioData ]);
+	}, [ setScaleAnim, headerLocation, portafolioData, setPortafolioData ]);
 
 	return (
 		portafolioData ?

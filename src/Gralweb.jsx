@@ -1,5 +1,5 @@
 // Dependecias
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 // Components Principales
@@ -12,53 +12,41 @@ import Footer from './components/footer/Footer';
 import './dependencias/icofont.min.css'
 import './Gralweb.css';
 
-class Gralweb extends Component {
-
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			headerLocation: 'Portafolio',
-			menuOpen: false
-		}
-	}
+const Gralweb = () => {
+	const [headerLocation, setHeaderLocation] = useState('Portafolio')
+	const [menuOpen, setMenuOpen] = useState(false)
 
 	// Funciones de Handle
-	handleClickHeader = () => {
-		this.setState({
-			menuOpen: !this.state.menuOpen
-		})
+	const handleUpdateHeaderLocation = {
+		portafolio: () => setHeaderLocation('Portafolio'),
+		servicios: () => setHeaderLocation('DevWeb'),
+		contactos: () => setHeaderLocation('Contactos'),
+		bio: () => setHeaderLocation('Bio')
 	}
 
-	handleUpdateHeaderLocation = locacion => {
-		this.setState({
-			headerLocation: locacion
-		})
+	const handleClickHeader = () => {
+		setMenuOpen(!menuOpen)
 	}
 
-	render () {
-		const { headerLocation, menuOpen } = this.state
+	return (
+		<section>
+			<Router>
 
-		return (
-			<section>
-				<Router>
+				<Header
+					location={ headerLocation }
+					menuOpen={ menuOpen }
+					onClick={ () => handleClickHeader() }
+				>
+				</Header>
 
-					<Header
-						headerLocation={ headerLocation }
-						menuOpen={ menuOpen }
-						onClick={ () => this.handleClickHeader() }
-					>
-					</Header>
+				<Main>
+					<Routing handleLocationHeader={ handleUpdateHeaderLocation } />
+				</Main>
+				<Footer/>
 
-					<Main>
-						<Routing handleLocationHeader={ () => this.handleUpdateHeaderLocation() } />
-					</Main>
-					<Footer/>
-
-				</Router>			
-			</section>
-		);
-	}
+			</Router>			
+		</section>
+	);	
 }
 
 export default Gralweb;

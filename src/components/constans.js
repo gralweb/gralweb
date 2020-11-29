@@ -2,3 +2,4 @@ export const API_URL_CARTS = 'http://localhost/programacion/gralweb/portafolio_b
 
 export const API_URL_PRESENTACION = 'http://localhost/programacion/gralweb/portafolio_backend/ajax/presentacion.php'
 
+export const ASSETS_URL = 'http://localhost:3000'

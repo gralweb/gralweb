@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Componentes
 import ContactFormArea from './ContactFormArea';
 
-const RenderContactos = () => {
+const RenderContactos = ({ headerLocation }) => {
+	const [scaleAnim, setScaleAnim] = useState(false)
+
+	useEffect(() => {
+		setScaleAnim(true)
+
+        headerLocation.contactos()
+    }, [headerLocation])
+
 	return (
 		<div className='app-main-cont'>
-			<div className='app-contac-form'>
+			<div className={ scaleAnim ? 'app-contac-form app-cont-item-scale' : 'app-contac-form' }>
 	            <div className='app-form-title'>
 	                <h1>Contactanos</h1>
 	            </div>

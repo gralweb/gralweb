@@ -6,7 +6,7 @@ const HeaderNav = ( { menuState, eventClick } ) => {
         <div className={ menuState ? 'app-nav-menu opened' : 'app-nav-menu' } >
             <ul className='app-menu-list'>
                 <li className='app-list-item' onClick={ eventClick }>
-                    <Link to='/'>Portafolio</Link>
+                    <Link to='/portafolio'>Portafolio</Link>
                 </li>
                 <li className='app-list-item' onClick={ eventClick }>
                     <Link to='/services'>Desarrollo Web</Link>
