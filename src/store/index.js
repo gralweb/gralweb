@@ -5,13 +5,14 @@ import { portafolioDataStore } from './portafolioData/store';
 import { portafolioDataActions } from './portafolioData/actions';
 
 const store = {
-	portafolioData: portafolioDataStore,
+	token: 'ReactContextManagerRocks',
+	portafolioData: portafolioDataStore
 };
 
 const actions = {
-	portafolioData: portafolioDataActions,
+	portafolioData: portafolioDataActions
 };
 
-const ctx = initContext();
+const context = initContext();
 
-export { actions, ctx, store };
+export { actions, context, store };

@@ -1,3 +1,3 @@
 export const portafolioDataStore = {
-	portafolioCarts: []
+	portafolioCarts: { hola: 'hola' }
 };
