@@ -26,7 +26,7 @@ const Header = ({ location, menuOpen, onClick }) => {
                 <div id='app-nav-logo' className='app-content-logo app-logo-cat'>
                     <figure className='app-logo-img'>
                         <Link to='/portafolio'>
-                            <img src={ `${ ASSETS_URL }/logo/logo_rojo.png` } title='GralWeb' alt='GralWeb'/>
+                            <img src={ `${ ASSETS_URL }/logo/pwa/512x512.png` } title='GralWeb' alt='GralWeb'/>
                         </Link>
                     </figure>
                 </div>

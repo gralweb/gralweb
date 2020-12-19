@@ -345,42 +345,73 @@ body.zoom {
 /* Contenido - fotos de las presentaciones */
 /* Contenido - Contenedor de las fotos con zoom */
 .app-vista-cont-zoom {
-    visibility: hidden;
     position: fixed;
     width: 100%;
     height: 100vh;
-    display: flex;
+    display: none;
     top: 0;
     left: 0;
     z-index: 11;
-    align-items: center;
-    transition: visibility 400ms;
+    flex-wrap: wrap;
+    align-items: flex-end;
     background-color: #373737ce;
+    transition: all 400ms var(--transition-animation);
 }
 
+.app-vista-cont-zoom.zoom {
+    display: flex;
+}
+
+/* Contenedor donde se muestra la Imagen con Zoom */
 .app-zoom-foto {
-    max-height: calc(100vh - 50px);
+    max-height: calc(100vh - 60px);
     max-width: calc(100vw - 100px);
     overflow-y: auto;
+    display: flex;
     margin: auto;
     padding: 10px;
-    border-radius: 10px;
+    align-self: center;
     transform: scale(0);
-    transition: transform 400ms;
+    transition: transform 400ms var(--transition-animation);
 }
 
 .app-zoom-foto img {
     width: 100%;
+    height: 100%;
     border-radius: 10px;
 }
 
-.app-vista-cont-zoom.zoom {
-    visibility: visible;
+.app-zoom-foto.zoom {
+    transform: scale(1);
 }
 
-.app-zoom-foto.zoom {
-    transition: transform 400ms;
-    transform: scale(1);
+/* Contenido del Boton para cerrar el Contenedor del Zoom */
+.app-zoom-cont-close-btn {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    align-content: center;
+}
+
+.app-btn-menu-dark {
+    margin: 0 auto 10px auto;
+}
+
+.app-btn-menu-dark i {
+    transition: all 300ms var(--transition-animation);
+    color: var(--color-font-claro);
+}
+
+.app-btn-menu-dark:hover i {
+    color: var(--color-font);
+}
+
+/* Vista normal de la presentacion */
+.app-vista {
+    min-height: 180px;
+    margin: 1px;
+    position: relative;
 }
 
 .app-vista-cont-fotos {
@@ -389,13 +420,6 @@ body.zoom {
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
-}
-
-/* Vista normal de la presentacion */
-.app-vista {
-    min-height: 180px;
-    margin: 1px;
-    position: relative;
 }
 
 #app-vista-top-le img,
@@ -418,6 +442,7 @@ body.zoom {
     border-radius: 0 0 10px 0;
 }
 
+/* Contenido de la Lupa - Lentes de las cartas para el zoom */
 .app-vista-zoom {
     transition: all 300ms;
     position: absolute;

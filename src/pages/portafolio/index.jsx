@@ -19,6 +19,9 @@ const RenderPortafolio = ({ headerLocation }) => {
 				const { datos } = r
 				
 				setPortafolioData(datos)
+			}).catch(r => {
+				let datos = [{"id":"9","titulo":"tapagas","foto":"8.jpg"},{"id":"8","titulo":"samurai","foto":"7.jpg"},{"id":"7","titulo":"anonymous","foto":"9.jpg"},{"id":"6","titulo":"masters","foto":"5.png"}]
+				setPortafolioData(datos)
 			})
 		}
 

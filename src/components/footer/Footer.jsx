@@ -8,7 +8,7 @@ const logoNormal = () => {
     return (
         <Link to='/portafolio'>
             <img
-                src={ `${ ASSETS_URL }/logo/logo_rojo.png ` }
+                src={ `${ ASSETS_URL }/logo/pwa/512x512.png ` }
                 title='Gralweb'
                 alt='Logo GralWeb'
             />
@@ -19,7 +19,7 @@ const logoNormal = () => {
 const logoExit = () => {
     return (
         <img
-            src={ `${ ASSETS_URL }/logo/logo_rojo.png ` }
+            src={ `${ ASSETS_URL }/logo/pwa/512x512.png ` }
             title='Logout'
             alt='Gralweb'
             onClick={ () => console.log('test') }

@@ -1,20 +1,41 @@
 {
-  "short_name": "Gralweb App",
+  "short_name": "Gralweb",
   "name": "Gralweb",
   "icons": [
     {
-      "src": "./logo/shortcut_rojo.png",
-      "sizes": "49x45",
-      "type": "image/x-icon"
+      "src": "./logo/pwa/16x16.png",
+      "type": "image/x-icon",
+      "sizes": "16x16"
     },
     {
-      "src": "./logo/shortcut_rojo.png",
+      "src": "./logo/pwa/24x24.png",
       "type": "image/png",
-      "sizes": "49x45"
+      "sizes": "24x24"
+    },
+    {
+      "src": "./logo/pwa/32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "./logo/pwa/64x64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "./logo/pwa/192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./logo/pwa/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait",
+  "theme_color": "#123987",
+  "background_color": "#051120"
 }
