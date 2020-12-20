@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Gralweb from './Gralweb';
-import sW from './sW';
+// import sW from './sW';
 
 // Importacion del Store - State Manager
 // import { ContextProvider } from '@talpor/react-context-manager';
@@ -16,4 +16,4 @@ ReactDOM.render(
 );
 
 // Iniciando el service Worker
-sW();
+// sW();

@@ -23,6 +23,8 @@ const RenderPresentacion = ({ nameCart }) => {
 		if (presentacionCartsData === null) {
 			FetchPresentacionCartsData( nameCart ).then(datos => {
 	 			setPresentacionCartsData(datos)
+			}).catch(err => {
+				setPresentacionCartsData({"datos":{"id":"7","titulo":"anonymous","descripcion":"anonymous lorem ipsum"},"fotos":[{"foto":"9.jpg"},{"foto":"42.jpg"},{"foto":"43.jpg"},{"foto":"45.jpg"}]})
 			})
 		}
 

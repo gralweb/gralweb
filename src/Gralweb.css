@@ -353,6 +353,7 @@ body.zoom {
     left: 0;
     z-index: 11;
     flex-wrap: wrap;
+    overflow-y: auto;
     align-items: flex-end;
     background-color: #373737ce;
     transition: all 400ms var(--transition-animation);
@@ -422,23 +423,23 @@ body.zoom {
     margin-top: 20px;
 }
 
-#app-vista-top-le img,
-#app-vista-top-le .app-vista-zoom {
+.app-vista-cont-fotos > .app-cont-item:nth-child(1) figure img,
+.app-vista-cont-fotos > .app-cont-item:nth-child(1) figcaption .app-vista-zoom {
     border-radius: 10px 0 0 0;
 }
 
-#app-vista-top-ri img,
-#app-vista-top-ri .app-vista-zoom {
+.app-vista-cont-fotos > .app-cont-item:nth-child(2) img,
+.app-vista-cont-fotos > .app-cont-item:nth-child(2) .app-vista-zoom {
     border-radius: 0 10px 0 0;
 }
 
-#app-vista-bottom-le img,
-#app-vista-bottom-le .app-vista-zoom {
+.app-vista-cont-fotos > .app-cont-item:nth-child(3) img,
+.app-vista-cont-fotos > .app-cont-item:nth-child(3) .app-vista-zoom {
     border-radius: 0 0 0 10px;
 }
 
-#app-vista-bottom-ri img,
-#app-vista-bottom-ri .app-vista-zoom {
+.app-vista-cont-fotos > .app-cont-item:nth-child(4) img,
+.app-vista-cont-fotos > .app-cont-item:nth-child(4) .app-vista-zoom {
     border-radius: 0 0 10px 0;
 }
 
@@ -691,20 +692,8 @@ body.zoom {
     background: linear-gradient(200deg,rgb(153,0,0),rgb(204,0,0));
 }
 
-#app-form-check {
-    display: none;
-}
-
-#app-form-error {
-    display: none;
-    font-size: 1.8rem;
-}
-
-#app-form-check.process {
-    display: block;
-}
-
-#app-form-error.process {
+/* Icono Send */
+#app-form-send {
     display: block;
 }
 
@@ -712,7 +701,26 @@ body.zoom {
     display: none;
 }
 
-/* Animaciones - form */
+/* Icono Chequeado */
+#app-form-check {
+    display: none;
+}
+
+#app-form-check.process {
+    display: block;
+}
+
+/* Icono Error */
+#app-form-error {
+    display: none;
+    font-size: 1.8rem;
+}
+
+#app-form-error.process {
+    display: block;
+}
+
+/* A N I M A C I O N E S - form */
 /* Animacion - app-form-line con focus */
 .app-form-line.focus-in-te .app-form-camp {
     top: -16px;
@@ -724,6 +732,7 @@ body.zoom {
     width: 102%;
 }
 
+/* Color cuando los datos no son Validos */
 .app-form-line.error:before {
     background: #ED213A;
     background: -webkit-linear-gradient(140deg,#ED213A, #93291E);
@@ -734,20 +743,43 @@ body.zoom {
     color: #c12414;
 }
 
+/* Color cuando los datos son enviados correctamente */
+.app-form-line.processValid:before {
+    background: #00cc47;
+    background: -webkit-linear-gradient(200deg,#00cc47,#009935);
+    background: linear-gradient(200deg,#00cc47,#009935);
+}
+
+.app-form-line.processValid .app-form-camp {
+    color: #009935;
+}
+
 .app-form-input-msj.error {
     display: block;
 }
 
 /* Animacion - app-form-btn en envio */
-.app-form-btn-load.process {
-    animation: load-process 700ms linear infinite;
+.app-form-btn-loader {
+    display: none;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    border-radius: 100%;
     border: 2px solid transparent;
-    display: flex;
     border-top-color: var(--color-oscuro);
 }
 
-.app-form-btn-load.process .app-form-btn {
-    visibility: hidden;
+.app-form-btn-loader.process {
+    animation: load-process 700ms linear infinite;
+    display: flex;
+}
+
+.app-form-btn-load.process {
+    display: none;
+}
+
+.app-form-btn.processValid {
+    background: linear-gradient(200deg,#00cc47,#009935);
 }
 
 /* Loader de la pagina */

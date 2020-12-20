@@ -1,16 +1,37 @@
 import React from 'react';
 
-// const AreaFocus = () => {
-//     let parent = this
-//     console.log(parent)
-// }
+const inputAnimacion = (area, evento) => {
+    const areaParent = area.parentElement.parentElement
+    const areaClaseFocus = 'focus-in-te'
+    const areaClaseError = 'error'
+
+    switch(evento) {
+        case 'focus' :
+            areaParent.classList.add(areaClaseFocus)
+            break;
+        case 'blur' :
+            if (!area.value) {
+                areaParent.classList.remove(areaClaseFocus)
+            }
+            break;
+        default :
+            areaParent.classList.add(areaClaseFocus)
+            break;
+    }
+    
+    if (areaParent.classList.contains(areaClaseError)) {
+        areaParent.classList.remove(areaClaseError)
+    }
+}
 
 const ContactFormInput = ( type, name ) => {
     return (
         <input 
+            className='app-contac-input'
             type={ type }
             name={ `app-form-${ name }` }
-            className='app-contac-input'
+            onBlur={ e => inputAnimacion(e.currentTarget, 'blur') }
+            onFocus={ e => inputAnimacion(e.currentTarget, 'focus') }
         />
     );
 }
@@ -18,8 +39,10 @@ const ContactFormInput = ( type, name ) => {
 const ContactFormTextArea = name => {
     return (
         <textarea 
-            name={ `app-form-${ name }` } 
             className='app-contac-input'
+            name={ `app-form-${ name }` }
+            onBlur={ e => inputAnimacion(e.currentTarget, 'blur') }
+            onFocus={ e => inputAnimacion(e.currentTarget, 'focus') } 
         >
         </textarea>
     );
