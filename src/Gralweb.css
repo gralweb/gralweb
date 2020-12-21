@@ -461,6 +461,7 @@ body.zoom {
     margin-top: 20px;
 }
 
+/* Bordes personalizados para las fotos de las presentaciones */
 .app-vista-cont-fotos > .app-cont-item:nth-child(1) figure img,
 .app-vista-cont-fotos > .app-cont-item:nth-child(1) figcaption .app-vista-zoom {
     border-radius: 10px 0 0 0;
@@ -530,52 +531,6 @@ body.zoom {
 }
 
 /* Pagina de Contactos */
-/* Iconos De Redes Sociales */
-.app-cont-contac {
-    display: flex;
-    width: 90%;
-    margin: auto;
-    height: 40px;
-    align-items: center;
-    align-content: center;
-}
-
-.app-cont-contac-ico {
-    display: inline-flex;
-    max-height: 100%;
-    margin: auto;
-    align-items: center;
-}
-
-.app-contac-ico-sep {
-    display: inline-block;
-    width: 3px;
-    height: 28px;
-    border-radius: 10px;
-    background-color: var(--color-oscuro);
-}
-
-.app-contac-ico {
-    display: inline-block;
-    margin: 5px;
-    border-radius: 10px;
-    transition: all 300ms;
-    background-color: var(--fondo-cartas);
-}
-
-.app-ico {
-    text-decoration: none;
-    font-size: 1.4rem;
-    display: block;
-    padding: 1px 5px;
-    color: var(--color-font);
-}
-
-/* Animaciones - Fondo del app-ico */
-.app-contac-ico:hover {
-    background-color: var(--color-font-claro);
-}
-
 /* Formulario De Contacto */
 /* Contenedor - Form Contactos */
 .app-contac-form {
@@ -964,231 +919,11 @@ body.zoom {
     color: var(--color-font);
 }
 
-/* Pagina de Mensajes */
-.app-cont-item-small {
-    padding: 5px;
-    border-radius: 2px !important;
-    background-color: var(--fondo-cartas);
-}
-
-.app-cont-item-st-small {
-    box-shadow: 0px 0px 2px 0px var(--sombra); 
-    position: absolute;
-    display: flex;
-    height: 25px;
-    width: 25px;
-    right: -10px;
-    top: -10px;
-    border-radius: 100%;
-    justify-content: center;
-    background: linear-gradient(140deg, #ED213A,#93291E);
-}
-
-.app-cont-item-st-small a {
-    align-self: center;
-    color: #fafafa;
-    font-size: .9rem;
-    cursor: default;
-}
-
-.app-cont-item-text-small {
-    font-size: .9rem;
-    color: var(--color-font);
-}
-
-.app-cont-item-text-small-ver {
-    background-color: transparent;
-    text-align: center;
-    cursor: pointer;
-    margin: auto;
-    width: 60px;
-    padding: 5px;
-    margin-top: 5px;
-    border-radius: 5px;
-    color: var(--color-font-claro);
-}
-
-.app-cont-item-text-small-ver:hover {
-    background-color: rgb(7, 143, 255);
-    transition-duration: 300ms;
-    color: #fafafa;
-}
-
-/* Pagina de Mensajes - POPUP */
-.app-popup {
-    position: fixed;
-    display: block;
-    z-index: 11;
-    top: -1px;
-    left: 0;
-    right: 0;
-    height: 101vh;
-    overflow: hidden;
-    visibility: hidden;
-    transition: all 300ms ease-in-out;
-    background-color: var(--color-oscuro-t);
-}
-
-.app-popup-open {
-    visibility: visible;
-}
-
-.app-popup-cont {
-    background-color: var(--color-claro);
-    border-radius: 5px;
-    display: block;
-    margin: auto;
-    padding: 20px;
-    max-width: 400px;
-    margin-top: -100%;
-}
-
-.app-popup-open-cont {
-    margin-top: 15vh;
-}
-
-.app-popup-img {
-    display: block;
-    width: 40px;
-    height: 40px;
-    margin: auto;
-}
-
-.app-popup-img img {
-    width: 100%;
-}
-
-.app-popup-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    
-    height: 230px;
-    overflow: hidden;
-    overflow-y: auto;
-    margin: 10px auto;
-    border-radius: 5px;
-    background-color: var(--color-oscuro-t);
-}
-
-.app-popup-second-text {
-    display: flex;
-    width: 100%;
-    height: 35px;
-    justify-content: space-between;
-    /* background-color: #ED213A; */
-}
-
-.app-popup-second-text p {
-    display: inline-block;
-    font-size: .9rem;
-    color: #a7a7a7;
-    padding: 10px;
-}
-
-/* .app-popup-second-text-mail { */
-    /* background-color: #00f8de; */
-/* } */
-
-.app-popup-second-text-day {
-    /* background-color: #9d9d9d; */
-    float: right;
-    font-size: .8rem !important;
-}
-
-.app-popup-detalles {
-    height: 60px;
-    width: 100%;
-    /* background-color: rgb(106, 114, 116); */
-}
-
-.app-popup-detalles h5 {
-    text-align: center;
-    display: block;
-    font-size: 1rem;
-    color: #cfcfcf;
-}
-
-.app-popup-marc-estado {
-    margin-top: 10px;
-    display: block;
-    padding: 5px;
-    text-align: center;
-    /* background-color: #9d9d9d; */
-}
-
-.app-popup-marc-estado p {
-    display: inline-block;
-    font-size: .9rem;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    color: #cfcfcf;
-}
-
-.app-popup-marc-estado p:hover {
-     background: linear-gradient(140deg, #ED213A,#93291E);;
-}
-
-/* .app-popup-marc-estado p:nth-child(1) {
-    background-color: blue;
-}
-
-.app-popup-marc-estado p:nth-child(2) {
-    background-color: red;
-} */
-
-.app-popup-first-text {
-    max-height: 90px;
-    width: 100%;
-    padding: 10px;
-    overflow: hidden;
-    overflow-y: auto;
-    background-color: var(--fondo-cartas);
-}
-
-.app-popup-first-text p {
-    color: var(--color-oscuro-t);
-    font-size: .9rem;
-}
-
-.app-popup-close {
-    display: flex;
-    width: 30px;
-    height: 30px;
-    margin: auto;
-    cursor: pointer;
-    border-radius: 100%;
-}
-
-.app-popup-close a {
-    font-size: .9rem;
-    display: block;
-    margin: auto;
-    align-self: center;
-    color: var(--color-font);
-}
-
-.app-popup-close:hover {
-    background-color: var(--fondo-cartas);
-}
-
 /* Animacion de Scale de las cartas al iniciarce */
 .app-cont-item-scale {
     animation: scaleCarts 400ms both;
     animation-timing-function: ease-in-out;   
     animation-delay: 300ms;
-}
-
-@keyframes scaleCarts {
-    from {
-        transform: scale(0);
-    }
-
-    to {
-        transform: scale(1);
-    }
 }
 
 /* Final de la pagina */
@@ -1242,6 +977,28 @@ body.zoom {
 
 /* Reglas de estilo Responsive */
 @media screen and (max-width: 600px) {
+    /* Boton de Hamburguesa del menu - animacion */
+    .app-btn-menu {
+        background-color: var(--btn-hover);
+    }
+
+    /* Links del menu - animacion */
+    .app-list-item > a:after {
+        width: 1%;
+    }
+
+    /* Boton de Ver de las cartas - animacion */
+    .app-item-text p:nth-child(2) > a:after,
+    .app-item-text p:nth-child(2) > a:before {
+        height: 40%;
+    }
+
+    /* Boton de Cerrar el Zoom - animacion */
+    .app-btn-menu-dark i {
+        color: var(--color-font);
+    }
+
+    /* Icono de Zoom en las imagenes de las presentaciones - animacion */
     .app-vista-zoom {
         visibility: visible;
         background-color: rgba(250,250,250,.4);
@@ -1251,6 +1008,7 @@ body.zoom {
         display: block;
     }
 
+    /* Pagina bio - cambio de Foto por un Icono */
     .app-bio {
         display: block;
     }
@@ -1356,6 +1114,16 @@ body.zoom {
 }
 
 /* Key Frames - Animaciones */
+@keyframes scaleCarts {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
 @keyframes load-process {
     to {
         transform: rotate(0deg);

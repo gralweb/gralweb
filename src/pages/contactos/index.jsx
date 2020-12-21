@@ -39,7 +39,7 @@ const RenderContactos = ({ headerLocation }) => {
 			}
 			<div className={ scaleAnim ? 'app-contac-form app-cont-item-scale' : 'app-contac-form' }>
 	            <div className='app-form-title'>
-	                <h1>Contactanos</h1>
+	                <h1>Contáctanos</h1>
 	            </div>
 
 	            <div className='app-form-cont'>
