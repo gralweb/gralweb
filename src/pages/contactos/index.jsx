@@ -1,20 +1,42 @@
 import React, { useState, useEffect } from 'react'
 
 // Componentes
+import PopUpConexion from './../../components/PopUpConexion'
 import ContactFormArea from './ContactFormArea'
 import procesarForm from './acciones/ContactProcesarForm'
 
 const RenderContactos = ({ headerLocation }) => {
 	const [scaleAnim, setScaleAnim] = useState(false)
+	const [ conexionError, setConexionError ] = useState(false)
+
+	const PopUp = () => {
+		return (
+			(conexionError) ? <PopUpConexion active={conexionError} locacion='contactos' /> : null
+		)
+	}
+
+	const handleStateConexion = () => {
+		setConexionError(!conexionError)
+	}
 
 	useEffect(() => {
 		setScaleAnim(true)
 
         headerLocation.contactos()
-    }, [headerLocation])
+
+        if (conexionError) {
+        	setTimeout(() => {
+				handleStateConexion()
+			}, 2000)
+        }
+
+    }, [ headerLocation, conexionError ])
 
 	return (
 		<div className='app-main-cont'>
+			{
+				PopUp()
+			}
 			<div className={ scaleAnim ? 'app-contac-form app-cont-item-scale' : 'app-contac-form' }>
 	            <div className='app-form-title'>
 	                <h1>Contactanos</h1>
@@ -23,7 +45,7 @@ const RenderContactos = ({ headerLocation }) => {
 	            <div className='app-form-cont'>
 	                <form 
 	                	id='app-form' className='app-form' 
-	                	method='post' onSubmit={ e => procesarForm(e) }
+	                	method='post' onSubmit={ e => procesarForm(e, handleStateConexion) }
 	                >
 	                    <ContactFormArea
 	                    	label='Nombre' type='text' 

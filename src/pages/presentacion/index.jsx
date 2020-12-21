@@ -1,14 +1,16 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 // Componentes
-import LoaderApp from './../../components/LoaderApp';
-import RenderPresentacionData from './RenderPresentacionData';
-import FetchPresentacionCartsData from './FetchPresentacionCartsData';
+import LoaderApp from './../../components/LoaderApp'
+import PopUpConexion from './../../components/PopUpConexion'
+import RenderPresentacionData from './RenderPresentacionData'
+import FetchPresentacionCartsData from './FetchPresentacionCartsData'
 
 const RenderPresentacion = ({ nameCart }) => {
 	const [ scaleAnim, setScaleAnim ] = useState(false)
 	const [ presentacionCartsData, setPresentacionCartsData ] = useState(null)
-
+	const [conexionError, setConexionError] = useState(false)
+	const [ countErr, setCountErr ] = useState(0)
 	const [ zoomOpen, setZoomOpen ] = useState(false)
 
 	const zoomHandleOpen =() => {
@@ -17,15 +19,37 @@ const RenderPresentacion = ({ nameCart }) => {
 
 	const zoomImgList = document.querySelectorAll('.app-vista-cont-fotos .zoom')
 
+	const loader = () => {
+		return (
+			(conexionError) ? 
+			<PopUpConexion active={conexionError} /> :
+			LoaderApp()
+		)
+	}
+
+	const fetchData = () => {
+		FetchPresentacionCartsData( nameCart ).then(datos => {
+ 			setPresentacionCartsData(datos)
+		}).catch(err => {
+			setCountErr(countErr + 1)
+			setConexionError(!conexionError)
+		})
+	}
+
 	useEffect(() => {
 		setScaleAnim(true)
 
 		if (presentacionCartsData === null) {
-			FetchPresentacionCartsData( nameCart ).then(datos => {
-	 			setPresentacionCartsData(datos)
-			}).catch(err => {
-				setPresentacionCartsData({"datos":{"id":"7","titulo":"anonymous","descripcion":"anonymous lorem ipsum"},"fotos":[{"foto":"9.jpg"},{"foto":"42.jpg"},{"foto":"43.jpg"},{"foto":"45.jpg"}]})
-			})
+			if (countErr < 3) {
+				fetchData()
+			}
+		}
+
+		if (conexionError && (countErr === 2)) {
+			setTimeout(() => {
+				fetchData()
+				setCountErr(0)
+			}, 30000)
 		}
 
 		if (zoomOpen) {
@@ -39,14 +63,20 @@ const RenderPresentacion = ({ nameCart }) => {
 			document.querySelector('body').classList.remove('zoom')
 		}
 
-	}, [ setScaleAnim, presentacionCartsData, nameCart, setPresentacionCartsData, zoomOpen, zoomImgList ])
+	}, [ 
+		setScaleAnim, presentacionCartsData,
+		nameCart, setPresentacionCartsData,
+		zoomOpen, zoomImgList,
+		setConexionError, conexionError,
+		countErr, setCountErr
+		])
 
 	return (
 		presentacionCartsData ?
 		RenderPresentacionData(presentacionCartsData, scaleAnim, zoomOpen, zoomHandleOpen)
 		:
-		LoaderApp()
-	);
+		loader()
+	)
 }
 
-export default RenderPresentacion;
+export default RenderPresentacion

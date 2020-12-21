@@ -1,13 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 // Componentes
-import LoaderApp from './../../components/LoaderApp';
-import FetchPortafolioCarts from './FetchPortafolioCarts';
-import RenderPortafolioData from './RenderPortafolioData';
+import LoaderApp from './../../components/LoaderApp'
+import PopUpConexion from './../../components/PopUpConexion'
+import FetchPortafolioCarts from './FetchPortafolioCarts'
+import RenderPortafolioData from './RenderPortafolioData'
 
 const RenderPortafolio = ({ headerLocation }) => {
-	const [ scaleAnim, setScaleAnim ] = useState(false);
-	const [ portafolioData, setPortafolioData ] = useState(null);
+	const [ scaleAnim, setScaleAnim ] = useState(false)
+	const [ portafolioData, setPortafolioData ] = useState(null)
+	const [ conexionError, setConexionError ] = useState(false)
+	const [ countErr, setCountErr ] = useState(0)
+
+	const loader = () => {
+		return (
+			(conexionError) ? 
+			<PopUpConexion active={conexionError} /> :
+			LoaderApp()
+		)
+	}
+
+	const fetchData = () => {
+		FetchPortafolioCarts().then(r => {
+			const { datos } = r
+			
+			setPortafolioData(datos)
+		}).catch(r => {
+			setCountErr(countErr + 1)
+			setConexionError(!conexionError)
+		})
+	}
 
 	useEffect(() => {
 		setScaleAnim(true)
@@ -15,17 +37,19 @@ const RenderPortafolio = ({ headerLocation }) => {
 		headerLocation.portafolio()
 
 		if ( portafolioData === null ) {
-			FetchPortafolioCarts().then(r => {
-				const { datos } = r
-				
-				setPortafolioData(datos)
-			}).catch(r => {
-				let datos = [{"id":"9","titulo":"tapagas","foto":"8.jpg"},{"id":"8","titulo":"samurai","foto":"7.jpg"},{"id":"7","titulo":"anonymous","foto":"9.jpg"},{"id":"6","titulo":"masters","foto":"5.png"}]
-				setPortafolioData(datos)
-			})
+			if (countErr < 3) {
+				fetchData()
+			}
 		}
 
-	}, [ setScaleAnim, headerLocation, portafolioData, setPortafolioData ]);
+		if (conexionError && (countErr === 2)) {
+			setTimeout(() => {
+				fetchData()
+				setCountErr(0)
+			}, 30000)
+		}
+
+	}, [ setScaleAnim, headerLocation, portafolioData, setPortafolioData, setConexionError, conexionError, countErr, setCountErr ])
 
 	return (
 		portafolioData ?
@@ -34,8 +58,8 @@ const RenderPortafolio = ({ headerLocation }) => {
 				RenderPortafolioData( portafolioData, scaleAnim )
 			}
 		</div> :
-		LoaderApp()
-	);
+		loader()
+	)
 }
 
-export default RenderPortafolio;
+export default RenderPortafolio

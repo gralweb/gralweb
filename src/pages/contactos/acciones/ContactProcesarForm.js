@@ -1,6 +1,6 @@
 import { contactFormValidate, contactFormValidateAlert } from './ContactFormValidate'
 
-const procesarForm = e => {
+const procesarForm = (e, handleConexion) => {
 	e.preventDefault()
 	const formulario = e.currentTarget
 
@@ -82,7 +82,9 @@ const procesarForm = e => {
 				formulario.lastChild.classList.remove('process')
 			}
 		}).catch(err => {
-			console.log('error en la conexion', err)
+			handleConexion()
+			formulario[5].parentElement.classList.remove('process')
+			formulario.lastChild.classList.remove('process')
 		})
 	}
 }

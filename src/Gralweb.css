@@ -229,6 +229,44 @@ body.zoom {
 }
 
 /* Intermedio de la pagina */
+/* Mensaje PopUP error con la Conexion */
+.app-popup-err {
+    position: absolute;
+    display: flex;
+    height: 120px;
+    width: 250px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: -200px;
+    z-index: 1111;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fondo-cartas);
+    box-shadow: 0px 3px 10px -5px var(--sombra);
+    transition: all 700ms var(--transition-animation);
+}
+
+.app-popup-err p {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 25px;
+    display: block;
+    padding: 5px;
+    font-weight: bold;
+    color: var(--color-font-claro);
+}
+
+.app-popup-err p:nth-child(2) {
+    font-size: 2rem;
+}
+
+.app-popup-err.active {
+    animation: PopUpError 600ms linear both;
+}
+
 /* Contenedor de la seccion principal Main */
 .app-main {
     width: 100%;
@@ -1325,5 +1363,11 @@ body.zoom {
 
     from {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes PopUpError {
+    100% {
+        top: 50%;
     }
 }
