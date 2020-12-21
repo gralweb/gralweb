@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Componentes
 import { ASSETS_URL } from './../../components/constans'
@@ -20,7 +20,7 @@ const PortafolioCart = ({ scaleAnim, img, titulo }) => {
                 </p>
             </figcaption>
         </div>
-    );
+    )
 }
 
-export default PortafolioCart;
+export default PortafolioCart

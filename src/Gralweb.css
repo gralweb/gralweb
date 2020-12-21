@@ -23,7 +23,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    transition: all 1s;
+    transition: all 300ms var(--transition-animation);
 }
 
 body {
@@ -300,11 +300,11 @@ body.zoom {
 /* Contenido - Imagen de las cartas de los Articulos */
 .app-item-img {
     height: 180px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
 }
 
 .app-item-img img {
-    border-radius: 5px 5px 0 0;
-    height: 100%;
     width: 100%;
 }
 
@@ -462,22 +462,22 @@ body.zoom {
 }
 
 /* Bordes personalizados para las fotos de las presentaciones */
-.app-vista-cont-fotos > .app-cont-item:nth-child(1) figure img,
+.app-vista-cont-fotos > .app-cont-item:nth-child(1) figure,
 .app-vista-cont-fotos > .app-cont-item:nth-child(1) figcaption .app-vista-zoom {
     border-radius: 10px 0 0 0;
 }
 
-.app-vista-cont-fotos > .app-cont-item:nth-child(2) img,
+.app-vista-cont-fotos > .app-cont-item:nth-child(2) figure,
 .app-vista-cont-fotos > .app-cont-item:nth-child(2) .app-vista-zoom {
     border-radius: 0 10px 0 0;
 }
 
-.app-vista-cont-fotos > .app-cont-item:nth-child(3) img,
+.app-vista-cont-fotos > .app-cont-item:nth-child(3) figure,
 .app-vista-cont-fotos > .app-cont-item:nth-child(3) .app-vista-zoom {
     border-radius: 0 0 0 10px;
 }
 
-.app-vista-cont-fotos > .app-cont-item:nth-child(4) img,
+.app-vista-cont-fotos > .app-cont-item:nth-child(4) figure,
 .app-vista-cont-fotos > .app-cont-item:nth-child(4) .app-vista-zoom {
     border-radius: 0 0 10px 0;
 }
@@ -578,11 +578,6 @@ body.zoom {
     border-bottom: 3px solid var(--color-font-claro);
 }
 
-#app-form-textarea {
-    width: 100%;
-    margin: 15px 10px;
-}
-
 .app-form-line:before {
     background-color: var(--color-oscuro);
     transition: all 300ms;
@@ -596,6 +591,11 @@ body.zoom {
     margin: auto;
     z-index: none;
     bottom: -3px;
+}
+
+#app-form-textarea {
+    width: 100%;
+    margin: 15px 10px;
 }
 
 .app-form-camp {
@@ -998,6 +998,11 @@ body.zoom {
         color: var(--color-font);
     }
 
+    /* Imaganes que se muestran en las presentaciones para el zoom */
+    .app-vista-foto {
+        border-radius: 10px !important;
+    }
+
     /* Icono de Zoom en las imagenes de las presentaciones - animacion */
     .app-vista-zoom {
         visibility: visible;
@@ -1053,10 +1058,6 @@ body.zoom {
 
     .app-vista {
         margin: 5px auto;
-    }
-
-    .app-vista img {
-        border-radius: 10px !important;
     }
 
     .app-vista-cont-texto {
