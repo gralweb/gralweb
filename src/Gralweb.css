@@ -926,7 +926,89 @@ body.zoom {
     animation-delay: 300ms;
 }
 
+/* Boton Flotante */
+.app-float-btn-content {
+    width: 80px;
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 5vh;
+    right: 0;
+}
+
+.app-float-btn-cont {
+    box-shadow: 1px 2px 3px -1px var(--sombra);
+    height: 60px;
+    width: 60px;
+    margin: 2px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    transition: all 400ms var(--transition-animation);
+}
+
+.app-float-btn-cont-claro {
+    background: #ED213A;
+    background: -webkit-linear-gradient(140deg, #ED213A, #93291E);
+    background: linear-gradient(140deg, #ED213A, #93291E);
+}
+
+.app-float-btn-cont-oscuro {
+    background: var(--color-claro);
+}
+
+/* Boton Flotante Para Cambiar el Tema */
+.app-float-btn-theme {
+    width: 30px;
+    height: 10px;
+    position: relative;
+    border-radius: 37%;
+    background-color: var(--color-oscuro-t);
+}
+
+.app-float-btn-theme-circle {
+    transition: all 300ms var(--transition-animation);
+    box-shadow: 1px 2px 3px -1px var(--sombra);
+    position: absolute;
+    top: -4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+}
+
+.app-float-btn-theme-claro .app-float-btn-theme-circle {
+    animation: FloatBtnClaro 700ms linear both;
+    background-color: var(--color-claro);
+}
+
+.app-float-btn-theme-oscuro .app-float-btn-theme-circle {
+    animation: FloatBtnOscuro 700ms linear both;
+    background-color: var(--color-oscuro);
+}
+
+/* Boton Flotante Para el NewLetters */
+.app-float-btn-newLetters {
+    font-size: 1.7rem;
+    color: var(--color-font);
+    text-shadow: var(--text-sombra);
+}
+
+.app-float-btn-cont-claro:nth-child(2) {
+    background: linear-gradient(140deg, #b3e5fc,#29b6f6);
+}
+
+.app-float-btn-cont-claro .app-float-btn-newLetters {
+    color: #546e7a;
+}
+
 /* Final de la pagina */
+/* Footer */
 .app-footer {
     box-shadow: 0px 0px 10px -5px var(--sombra);
     border-radius: 5px 5px 0 0;
@@ -1138,5 +1220,25 @@ body.zoom {
 @keyframes PopUpError {
     100% {
         top: 50%;
+    }
+}
+
+@keyframes FloatBtnClaro {
+    0% {
+        right: -2px
+    }
+
+    100% {
+        left: -2px;
+    }
+}
+
+@keyframes FloatBtnOscuro {
+    0% {
+        left: -2px
+    }
+
+    100% {
+        right: -2px;
     }
 }
