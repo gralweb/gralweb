@@ -7,6 +7,7 @@ import Header from './components/header/Header'
 import Main from './components/main/Main'
 import Routing from './components/Routing'
 import Footer from './components/footer/Footer'
+// Float BTN
 import FloatBtnContent from './components/floatBtn/FloatBtnContent'
 import FloatBtn from './components/floatBtn/FloatBtn'
 
@@ -35,6 +36,7 @@ const Gralweb = () => {
 	const handleTheme = () => {
 		setTheme(!themeClaro)
 	}
+
 	const handleNewLetters = () => {
 		setNewLetters(!newLetters)
 		console.log('handleNewLetters')

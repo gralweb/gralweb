@@ -19,7 +19,7 @@ const Routing = ({ handleLocationHeader }) => {
 			<Route
 				exact
 				path='/portafolio'
-				render={ () => <RenderPortafolio headerLocation={ handleLocationHeader } /> }
+				render={ () => <RenderPortafolio headerLocation={ handleLocationHeader } pageTarget='1' /> }
 			/>
 			<Route
 				exact
@@ -40,6 +40,18 @@ const Routing = ({ handleLocationHeader }) => {
 				exact
 				path='/portafolio/:name'
 				render={ routeProps => <RenderPresentacion nameCart={ routeProps.match.params.name } /> }
+			/>
+			<Route
+				exact
+				path='/portafolio/page/:page'
+				render={ 
+					routeProps => (
+						<RenderPortafolio
+							headerLocation={ handleLocationHeader } 
+							pageTarget={ routeProps.match.params.page } 
+						/>
+					)
+				}
 			/>
 		</Switch>
 	);

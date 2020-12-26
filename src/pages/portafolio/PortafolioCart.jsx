@@ -16,7 +16,7 @@ const PortafolioCart = ({ scaleAnim, img, titulo }) => {
                     { titulo }
                 </p>
                 <p>
-                    <Link to={ `portafolio/${ titulo }` }>view</Link>
+                    <Link to={ `/portafolio/${ titulo }` }>view</Link>
                 </p>
             </figcaption>
         </div>

@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react'
 
 // Componentes
 import LoaderApp from './../../components/LoaderApp'
+import Paginacion from './../../components/Paginacion'
 import PopUpConexion from './../../components/PopUpConexion'
 import FetchPortafolioCarts from './FetchPortafolioCarts'
 import RenderPortafolioData from './RenderPortafolioData'
 
-const RenderPortafolio = ({ headerLocation }) => {
+const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 	const [ scaleAnim, setScaleAnim ] = useState(false)
 	const [ portafolioData, setPortafolioData ] = useState(null)
 	const [ conexionError, setConexionError ] = useState(false)
 	const [ countErr, setCountErr ] = useState(0)
+	const [ numPages, setNumPages ] = useState(null)
 
 	const loader = () => {
 		return (
@@ -20,11 +22,16 @@ const RenderPortafolio = ({ headerLocation }) => {
 		)
 	}
 
+	const restoreDataCarts = () => {
+		setPortafolioData(null)
+	}
+
 	const fetchData = () => {
-		FetchPortafolioCarts().then(r => {
-			const { datos } = r
+		FetchPortafolioCarts(parseInt(pageTarget)).then(r => {
+			const { datos, pages } = r
 			
 			setPortafolioData(datos)
+			setNumPages(parseInt(pages))
 		}).catch(r => {
 			setCountErr(countErr + 1)
 			setConexionError(!conexionError)
@@ -33,10 +40,9 @@ const RenderPortafolio = ({ headerLocation }) => {
 
 	useEffect(() => {
 		setScaleAnim(true)
-		
 		headerLocation.portafolio()
 
-		if ( portafolioData === null ) {
+		if ( portafolioData === null) {
 			if (countErr < 3) {
 				fetchData()
 			}
@@ -48,8 +54,7 @@ const RenderPortafolio = ({ headerLocation }) => {
 				setCountErr(0)
 			}, 30000)
 		}
-
-	}, [ setScaleAnim, headerLocation, portafolioData, setPortafolioData, setConexionError, conexionError, countErr, setCountErr ])
+	}, [ setScaleAnim, headerLocation, portafolioData, setPortafolioData, setConexionError, conexionError, countErr, setCountErr, numPages, setNumPages ])
 
 	return (
 		portafolioData ?
@@ -57,6 +62,8 @@ const RenderPortafolio = ({ headerLocation }) => {
 			{
 				RenderPortafolioData( portafolioData, scaleAnim )
 			}
+
+			<Paginacion paginas={numPages} pageTarget={parseInt(pageTarget)} handleClick={restoreDataCarts} />
 		</div> :
 		loader()
 	)

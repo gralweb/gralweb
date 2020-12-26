@@ -926,6 +926,60 @@ body.zoom {
     animation-delay: 300ms;
 }
 
+/* Paginación */
+.app-paginacion-cont {
+    width: 100%;
+    display: flex;
+    margin: 20px auto;
+    align-items: center;
+    justify-content: center;
+    /*border: 2px solid #000;*/
+}
+
+.app-paginacion-cont.inactivo {
+    display: none;
+}
+
+.app-paginacion {
+    /*background-color: red;*/
+    display: block;
+}
+
+.app-paginacion a {
+    color: var(--color-font);
+    text-decoration: none;
+    display: inline-flex;
+    font-size: .9rem;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    font-weight: bold;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 2px 3px -1px var(--sombra);
+}
+
+.app-paginacion-link {
+    background: var(--fondo-cartas);
+}
+
+.app-paginacion-link.active {
+    background: #ED213A;
+    background: -webkit-linear-gradient(140deg,#ED213A, #93291E);
+    background: linear-gradient(140deg, #ED213A,#93291E);
+}
+
+.app-paginacion-left,
+.app-paginacion-right {
+    background-color: var(--color-font-claro);
+}
+
+.app-paginacion-left.inactivo,
+.app-paginacion-right.inactivo {
+    visibility: hidden;
+}
+
 /* Boton Flotante */
 .app-float-btn-content {
     width: 80px;
@@ -1006,6 +1060,8 @@ body.zoom {
 .app-float-btn-cont-claro .app-float-btn-newLetters {
     color: #546e7a;
 }
+
+/* Listado de Paginas - Paginacion */
 
 /* Final de la pagina */
 /* Footer */
