@@ -28,10 +28,16 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 
 	const fetchData = () => {
 		FetchPortafolioCarts(parseInt(pageTarget)).then(r => {
-			const { datos, pages } = r
+			const { datos, pages, estado } = r
+
+			if (estado && estado === 'conexion_fallo') {
+				setCountErr(countErr + 1)
+				setConexionError(!conexionError)
+			} else if (datos) {
+				setPortafolioData(datos)
+				setNumPages(parseInt(pages))
+			}
 			
-			setPortafolioData(datos)
-			setNumPages(parseInt(pages))
 		}).catch(r => {
 			setCountErr(countErr + 1)
 			setConexionError(!conexionError)

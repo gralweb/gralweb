@@ -10,6 +10,8 @@ import Footer from './components/footer/Footer'
 // Float BTN
 import FloatBtnContent from './components/floatBtn/FloatBtnContent'
 import FloatBtn from './components/floatBtn/FloatBtn'
+// New Letters
+import NewLetter from './components/newLetter/NewLetter'
 
 // Styles
 import './dependencias/icofont.min.css'
@@ -19,7 +21,7 @@ const Gralweb = () => {
 	const [headerLocation, setHeaderLocation] = useState('Portafolio')
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [themeClaro, setTheme] = useState(true)
-	const [newLetters, setNewLetters] = useState(false)
+	const [newLettersOpen, setNewLettersOpen] = useState(false)
 
 	// Funciones de Handle
 	const handleUpdateHeaderLocation = {
@@ -38,8 +40,7 @@ const Gralweb = () => {
 	}
 
 	const handleNewLetters = () => {
-		setNewLetters(!newLetters)
-		console.log('handleNewLetters')
+		setNewLettersOpen(!newLettersOpen)
 	}
 
 	return (
@@ -62,6 +63,8 @@ const Gralweb = () => {
 					<FloatBtn type='theme' tema={ themeClaro } handleClick={ handleTheme } />
 					<FloatBtn type='newLetters' tema={ themeClaro } handleClick={ handleNewLetters } />	
 				</FloatBtnContent>
+
+				<NewLetter newLettersOpen={ newLettersOpen } />
 
 				<Footer/>
 
