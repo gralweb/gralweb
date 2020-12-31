@@ -1,19 +1,30 @@
 :root {
+    /* Colores Oscuros */
     --color-oscuro-t: #373737ce;
     --color-oscuro: #373737;
+    --color-font-oscuro: #373737;
+
+    --fondo-page-oscuro: #373737;
+    --fondo-cartas-oscuro: #373737;
+
+    --sombra-oscuro: #373737;
+    --text-sombra: -1px 1px 1px #6a6861ce;
+    --btn-hover-oscuro: #37474f;
+
+    /* Colores Claros */
+    --btn-hover-claro: #e4e4e4;
+
+    --fondo-page-claro: #fafafa;
+    --color-claro-t: #fafaface;
     --color-claro: #fafafa;
-    --sombra: #373737;
+    --fondo-cartas-claro: #e4e4e4;
 
-    --fondo-page: #fafafa;
-    --fondo-cartas: #e4e4e4;
+    --sombra-claro: #fafafa;
+    --color-font-claro: #fafaface;
 
-    --btn-hover: #e4e4e4;
-
-    --color-font-claro: #9d9d9d;
-    --color-font: #373737;
+    --color-font-medio: #9d9d9d;
     --tipo-font: Helvetica, 'Maven Pro', 'Open Sans';
 
-    --text-sombra: -1px 1px 1px  #6a6861ce;
     --radius-serv: 10px 10px 0 0;
     --transition-animation: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
@@ -27,7 +38,6 @@
 }
 
 body {
-    background-color: var(--fondo-page);
     font-family: var(--tipo-font);
     transition: overflow-y 400ms;
     overflow-x: hidden;
@@ -40,7 +50,6 @@ body.zoom {
 /* Inicio de la pagina */
 /* Contenedor Header */
 .app-header {
-    background-color: var(--fondo-page);
     width: 100%;
     height: 80px;
     display: block;
@@ -53,7 +62,6 @@ body.zoom {
     margin: auto;
     display: block;
     border-radius: 0 0 5px 5px;
-    box-shadow: 0 0 10px -5px var(--sombra);
 }
 
 /* Contenido de Header */
@@ -71,7 +79,6 @@ body.zoom {
     align-items: center;
     padding-left: 20px;
     font-weight: bold;
-    color: var(--color-font);
 }
 
 .app-location-item img {
@@ -101,8 +108,6 @@ body.zoom {
     margin: auto;
     display: block;
     border-radius: 100%;
-    background-color: var(--fondo-page);
-    box-shadow: 0px 0px 10px -5px var(--sombra);
 }
 
 #app-nav-logo {
@@ -115,7 +120,6 @@ body.zoom {
 }
 
 .app-logo-cat a {
-    color: var(--color-font);
     text-decoration: none;
     text-align: center;
     margin: auto;
@@ -148,6 +152,7 @@ body.zoom {
     height: 35px;
     width: 35px;
     display: flex;
+    cursor: pointer;
     border-radius: 100%;
     align-items: center;
     justify-content: center;
@@ -158,17 +163,10 @@ body.zoom {
     font-size: 1.1rem;
     text-align: center;
     transition: all 300ms;
-    color: var(--color-font);
-}
-
-.app-btn-menu:hover {
-    background-color: var(--btn-hover);
 }
 
 /* Contenido - Menu de Navegacion */
 .app-nav-menu {
-    box-shadow: 0px 10px 15px -10px var(--sombra);
-    background-color: var(--fondo-page);
     border-radius: 0 0 5px 5px;
     position: absolute;
     min-height: 300px;
@@ -203,7 +201,6 @@ body.zoom {
     position: relative;
     transition: all 300ms;
     text-decoration: none;
-    color:var(--color-font);
 }
 
 .app-list-item a:after {
@@ -216,7 +213,6 @@ body.zoom {
     right: 0;
     margin: auto;
     border-radius: 5px;
-    background-color: var(--color-oscuro);
     transition: all 300ms var(--transition-animation);
 }
 
@@ -244,8 +240,7 @@ body.zoom {
     border-radius: 5px;
     align-items: center;
     justify-content: center;
-    background-color: var(--fondo-cartas);
-    box-shadow: 0px 3px 10px -5px var(--sombra);
+    background-color: var(--fondo-cartas-claro);
     transition: all 700ms var(--transition-animation);
 }
 
@@ -256,7 +251,7 @@ body.zoom {
     display: block;
     padding: 5px;
     font-weight: bold;
-    color: var(--color-font-claro);
+    color: var(--color-font-medio);
 }
 
 .app-popup-err p:nth-child(2) {
@@ -293,7 +288,6 @@ body.zoom {
     /* min-height: 250px; */
     width: 260px;
     margin: 15px auto;
-    box-shadow: 0px 3px 10px -5px var(--sombra);
     transition: all 300ms var(--transition-animation);
 }
 
@@ -314,13 +308,11 @@ body.zoom {
     padding: 5px;
     min-height: 70px;
     border-radius: 0 0 5px 5px;
-    background-color: var(--fondo-cartas);
 }
 
 .app-item-text p {
     display: inline-block;
     width: 45%;
-    color: var(--color-font);
 }
 
 .app-item-text p:nth-child(1) {
@@ -328,7 +320,7 @@ body.zoom {
     font-size: .8rem;
     margin-top: 23px;
     padding-left: 20px;
-    color: var(--color-font-claro);
+    color: var(--color-font-medio);
 }
 
 .app-item-text p:nth-child(2) {
@@ -338,7 +330,6 @@ body.zoom {
 }
 
 .app-item-text p:nth-child(2) a {
-    color: var(--color-font);
     border-radius: 5px;
     font-weight: bold;
     display: block;
@@ -359,7 +350,6 @@ body.zoom {
     bottom: 0;
     margin: auto;
     border-radius: 5px;
-    background-color: var(--color-oscuro);
     transition: all 300ms var(--transition-animation);
 }
 
@@ -393,7 +383,7 @@ body.zoom {
     flex-wrap: wrap;
     overflow-y: auto;
     align-items: flex-end;
-    background-color: #373737ce;
+    background-color: var(--color-oscuro-t);
     transition: all 400ms var(--transition-animation);
 }
 
@@ -439,11 +429,11 @@ body.zoom {
 
 .app-btn-menu-dark i {
     transition: all 300ms var(--transition-animation);
-    color: var(--color-font-claro);
+    color: var(--color-font-medio);
 }
 
 .app-btn-menu-dark:hover i {
-    color: var(--color-font);
+    color: var(--color-font-oscuro);
 }
 
 /* Vista normal de la presentacion */
@@ -463,7 +453,7 @@ body.zoom {
 
 /* Bordes personalizados para las fotos de las presentaciones */
 .app-vista-cont-fotos > .app-cont-item:nth-child(1) figure,
-.app-vista-cont-fotos > .app-cont-item:nth-child(1) figcaption .app-vista-zoom {
+.app-vista-cont-fotos > .app-cont-item:nth-child(1) .app-vista-zoom {
     border-radius: 10px 0 0 0;
 }
 
@@ -500,7 +490,7 @@ body.zoom {
     display: none;
     width: 100%;
     font-size: 2.5rem;
-    color: var(--color-font);
+    color: var(--color-font-oscuro);
     transition: all 100ms !important;
 }
 
@@ -523,7 +513,6 @@ body.zoom {
 }
 
 .app-vista-cont-texto p {
-    color: var(--color-font);
     text-align: justify;
     font-size: .9rem;
     line-height: 20px;
@@ -534,7 +523,6 @@ body.zoom {
 /* Formulario De Contacto */
 /* Contenedor - Form Contactos */
 .app-contac-form {
-    box-shadow: 0px 0px 8px -5px var(--sombra);
     background-color: #e4e4e4ce;
     transform: scale(0);
     border-radius: 4px;
@@ -554,7 +542,7 @@ body.zoom {
 
 .app-form-title h1 {
     font-size: 1.7rem;
-    color: var(--color-font);
+    color: var(--color-font-oscuro);
 }
 
 /* Contenido - Inputs y textarea del form */
@@ -575,7 +563,7 @@ body.zoom {
     margin: 15px auto 0 auto;
     position: relative;
     display: inline-block;
-    border-bottom: 3px solid var(--color-font-claro);
+    border-bottom: 3px solid var(--color-font-medio);
 }
 
 .app-form-line:before {
@@ -606,7 +594,7 @@ body.zoom {
     left: 0;
     z-index: none;
     padding: 5px;
-    color: var(--color-font-claro);
+    color: var(--color-font-medio);
 }
 
 .app-form-input-msj {
@@ -624,7 +612,7 @@ body.zoom {
 }
 
 .app-form-input-msj p {
-    color: var(--color-font);
+    color: var(--color-font-oscuro);
     text-align: right;
     font-size: .8rem;
 }
@@ -645,7 +633,7 @@ body.zoom {
     height: 100%;
     width: 100%;
     font-size: .9rem;
-    color: var(--color-font);
+    color: var(--color-font-oscuro);
     font-family: var(--tipo-font);
     background-color: transparent;
 }
@@ -666,7 +654,7 @@ body.zoom {
 }
 
 .app-form-btn {
-    color: var(--fondo-cartas);
+    color: var(--fondo-cartas-claro);
     border-radius: 100%;
     font-size: 2.2rem;
     cursor: pointer;
@@ -677,7 +665,7 @@ body.zoom {
     height: 60px;
     text-align: center;
     transition: all 300ms;
-    box-shadow: 1px 2px 3px -1px var(--sombra);
+    box-shadow: 1px 2px 3px -1px var(--sombra-oscuro);
     background: linear-gradient(200deg,rgb(204,0,0),rgb(153,0,0));
 }
 
@@ -718,7 +706,7 @@ body.zoom {
 .app-form-line.focus-in-te .app-form-camp {
     top: -16px;
     font-size: .8rem;
-    color: var(--color-font);
+    color: var(--color-font-oscuro);
 }
 
 .app-form-line.focus-in-te:before {
@@ -775,26 +763,9 @@ body.zoom {
     background: linear-gradient(200deg,#00cc47,#009935);
 }
 
-/* Loader de la pagina */
-.app-main-loader {
-    height: 90vh;
-    display: flex;
-    /*align-items: center;*/
-    transition: all 400ms;
-}
-
-#app-main-loader.process {
-    border-top-color: #93291E;
-}
-
-.app-main-loader.process {
-    display: none;
-}
-
 /* Pagina Desarrollo Web */
 /* Contenido - Titulos de los servicios */
 .app-serv-item {
-    background-color:  var(--color-claro);
     padding-bottom: 20px;
 }
 
@@ -803,7 +774,6 @@ body.zoom {
     padding: 10px;
     text-align: center;
     font-size: 1.6rem;
-    color: var(--color-font-claro);
 }
 
 .app-item-serv-cont {
@@ -886,7 +856,6 @@ body.zoom {
 .app-bio-sep {
     display: none;
     font-size: 1.3rem;
-    color: var(--color-font);
 }
 
 .app-bio-foto img {
@@ -916,7 +885,6 @@ body.zoom {
     font-size: .9rem;
     line-height: 25px;
     letter-spacing: 1px;
-    color: var(--color-font);
 }
 
 /* Animacion de Scale de las cartas al iniciarce */
@@ -946,7 +914,6 @@ body.zoom {
 }
 
 .app-paginacion a {
-    color: var(--color-font);
     text-decoration: none;
     display: inline-flex;
     font-size: .9rem;
@@ -957,11 +924,10 @@ body.zoom {
     border-radius: 100%;
     align-items: center;
     justify-content: center;
-    box-shadow: 1px 2px 3px -1px var(--sombra);
 }
 
 .app-paginacion-link {
-    background: var(--fondo-cartas);
+    background: var(--fondo-cartas-claro);
 }
 
 .app-paginacion-link.active {
@@ -972,7 +938,7 @@ body.zoom {
 
 .app-paginacion-left,
 .app-paginacion-right {
-    background-color: var(--color-font-claro);
+    background-color: var(--color-font-medio);
 }
 
 .app-paginacion-left.inactivo,
@@ -995,7 +961,6 @@ body.zoom {
 }
 
 .app-float-btn-cont {
-    box-shadow: 1px 2px 3px -1px var(--sombra);
     height: 60px;
     width: 60px;
     margin: 2px;
@@ -1007,12 +972,6 @@ body.zoom {
     transition: all 400ms var(--transition-animation);
 }
 
-.app-float-btn-cont-claro {
-    background: #ED213A;
-    background: -webkit-linear-gradient(140deg, #ED213A, #93291E);
-    background: linear-gradient(140deg, #ED213A, #93291E);
-}
-
 .app-float-btn-cont-oscuro {
     background: var(--color-claro);
 }
@@ -1022,23 +981,18 @@ body.zoom {
     width: 30px;
     height: 10px;
     position: relative;
-    border-radius: 37%;
+    border-radius: 20px;
     background-color: var(--color-oscuro-t);
 }
 
 .app-float-btn-theme-circle {
     transition: all 300ms var(--transition-animation);
-    box-shadow: 1px 2px 3px -1px var(--sombra);
+    box-shadow: 1px 2px 3px -1px var(--sombra-oscuro);
     position: absolute;
     top: -4px;
     width: 18px;
     height: 18px;
     border-radius: 100%;
-}
-
-.app-float-btn-theme-claro .app-float-btn-theme-circle {
-    animation: FloatBtnClaro 700ms linear both;
-    background-color: var(--color-claro);
 }
 
 .app-float-btn-theme-oscuro .app-float-btn-theme-circle {
@@ -1049,23 +1003,13 @@ body.zoom {
 /* Boton Flotante Para el NewLetters */
 .app-float-btn-newLetters {
     font-size: 1.7rem;
-    color: var(--color-font);
+    color: var(--color-font-oscuro);
     text-shadow: var(--text-sombra);
-}
-
-.app-float-btn-cont-claro:nth-child(2) {
-    background: linear-gradient(140deg, #b3e5fc,#29b6f6);
-}
-
-.app-float-btn-cont-claro .app-float-btn-newLetters {
-    color: #546e7a;
 }
 
 /* New Letters */
 .app-new-letter-cont {
     transition: all 300ms var(--transition-animation);
-    box-shadow: 1px 2px 3px -1px var(--sombra);
-    background-color: var(--color-oscuro);
     border-radius: 10px;
     position: fixed;
     z-index: 111;
@@ -1090,7 +1034,6 @@ body.zoom {
     display: block;
     margin: 2px;
     font-size: .8rem;
-    color: var(--color-font-claro);
 }
 
 .app-new-letter-form {
@@ -1108,14 +1051,13 @@ body.zoom {
 }
 
 .app-new-letter-input input {
-    color: var(--color-font);
+    color: var(--color-font-oscuro);
     position: relative;
     border-radius: 5px;
     border: none;
     padding: 7px;
     width: 100%;
     font-size: .7rem;
-    box-shadow: -1px 1px 2px -1px var(--color-claro);
 }
 
 .app-new-letter-btn {
@@ -1134,7 +1076,7 @@ body.zoom {
     align-items: center;
     background: transparent;
     justify-content: center;
-    color: var(--color-font);
+    color: var(--color-font-oscuro);
     text-shadow: var(--text-sombra);
 }
 
@@ -1162,7 +1104,6 @@ body.zoom {
 }
 
 .app-new-letter-err-email.process {
-    background-color: var(--color-oscuro-t);
     font-size: .9rem;
     display: flex;
     color: #93291E;
@@ -1217,7 +1158,6 @@ body.zoom {
 /* Final de la pagina */
 /* Footer */
 .app-footer {
-    box-shadow: 0px 0px 10px -5px var(--sombra);
     border-radius: 5px 5px 0 0;
     position: relative;
     height: 25px;
@@ -1227,7 +1167,6 @@ body.zoom {
 }
 
 .app-footer-content {
-    box-shadow: 0px -3px 8px -5px var(--sombra);
     border-radius: 100% 100% 0 0;
     position: absolute;
     max-width: 70px;
@@ -1237,7 +1176,6 @@ body.zoom {
     right: 0;
     margin: auto;
     height: 75px;
-    background-color: var(--fondo-page);
 }
 
 #app-footer-logo {
@@ -1246,7 +1184,6 @@ body.zoom {
     cursor: pointer;
     font-size: .6rem;
     box-shadow: none;
-    border-color: var(--color-claro);
 }
 
 .app-content-year {
@@ -1261,16 +1198,22 @@ body.zoom {
 .app-content-year p {
     font-weight: bold;
     font-size: .8rem;
-    color: var(--color-font);
+}
+
+/* Loader Global */
+.app-main-loader {
+    height: 90vh;
+    display: flex;
+    /*align-items: center;*/
+    transition: all 400ms;
+}
+
+.app-main-loader.process {
+    display: none;
 }
 
 /* Reglas de estilo Responsive */
 @media screen and (max-width: 600px) {
-    /* Boton de Hamburguesa del menu - animacion */
-    .app-btn-menu {
-        background-color: var(--btn-hover);
-    }
-
     /* Links del menu - animacion */
     .app-list-item > a:after {
         width: 1%;
@@ -1284,11 +1227,12 @@ body.zoom {
 
     /* Boton de Cerrar el Zoom - animacion */
     .app-btn-menu-dark i {
-        color: var(--color-font);
+        color: var(--color-font-oscuro);
     }
 
     /* Imaganes que se muestran en las presentaciones para el zoom */
-    .app-vista-foto {
+    .app-vista-foto,
+    .app-vista-zoom {
         border-radius: 10px !important;
     }
 

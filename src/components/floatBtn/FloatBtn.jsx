@@ -1,12 +1,9 @@
 import React from 'react'
 
-const theme_claro = 'app-float-btn-theme-claro'
-const theme_oscuro = 'app-float-btn-theme-oscuro'
-
-const FloatBtnCont = ({ theme, handleClickBtn, children }) => {
+const FloatBtnCont = ({ handleClickBtn, children }) => {
 	return (
 		<div onClick= { () => handleClickBtn() }
-			className={ `app-float-btn-cont ${(theme) ? 'app-float-btn-cont-claro' : 'app-float-btn-cont-oscuro' }` }
+			className='app-float-btn-cont'
 		>
 			{
 				children
@@ -15,21 +12,19 @@ const FloatBtnCont = ({ theme, handleClickBtn, children }) => {
 	)
 }
 
-const FloatBtn = ({ type, tema, handleClick }) => {
+const FloatBtn = ({ type, handleClick }) => {
 	switch(type) {
 		case 'theme':
 			return (
-				<FloatBtnCont handleClickBtn={ handleClick } theme={ tema } >
-					<div 
-						className={ `app-float-btn-theme ${(tema) ? theme_claro : theme_oscuro}` }
-					>
+				<FloatBtnCont handleClickBtn={ handleClick } >
+					<div className='app-float-btn-theme' >
 						<div className='app-float-btn-theme-circle'></div>
 					</div>
 				</FloatBtnCont>
 			)
 		case 'newLetters':
 			return (
-				<FloatBtnCont handleClickBtn={ handleClick } theme={ tema } >
+				<FloatBtnCont handleClickBtn={ handleClick } >
 					<div
 						className='app-float-btn-newLetters'
 					>
@@ -40,7 +35,9 @@ const FloatBtn = ({ type, tema, handleClick }) => {
 		default :
 			return (
 				<FloatBtnCont handleClickBtn={ handleClick } >
-					<h1 >Float Btn Theme</h1>
+					<div className='app-float-btn-theme' >
+						<div className='app-float-btn-theme-circle'></div>
+					</div>
 				</FloatBtnCont>
 			)
 	}

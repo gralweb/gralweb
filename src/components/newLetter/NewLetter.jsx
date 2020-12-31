@@ -63,7 +63,7 @@ const NewLetter = ({ newLettersOpen }) => {
 
 				<div className='app-new-letter-err-email'>
 					<p>
-						Ingresa un correo valido
+						Ingresa un correo válido
 					</p>
 				</div>
 			</form>

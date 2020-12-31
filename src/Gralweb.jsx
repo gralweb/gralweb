@@ -16,11 +16,14 @@ import NewLetter from './components/newLetter/NewLetter'
 // Styles
 import './dependencias/icofont.min.css'
 import './Gralweb.css'
+// Themes
+import './dependencias/themeClaro.css'
+import './dependencias/themeOscuro.css'
 
 const Gralweb = () => {
 	const [headerLocation, setHeaderLocation] = useState('Portafolio')
 	const [menuOpen, setMenuOpen] = useState(false)
-	const [themeClaro, setTheme] = useState(true)
+	const [themeClaro, setTheme] = useState((localStorage.getItem('theme') !== null) ? JSON.parse(localStorage.getItem('theme')) : true)
 	const [newLettersOpen, setNewLettersOpen] = useState(false)
 
 	// Funciones de Handle
@@ -36,6 +39,7 @@ const Gralweb = () => {
 	}
 
 	const handleTheme = () => {
+		localStorage.setItem('theme', JSON.stringify(!themeClaro))
 		setTheme(!themeClaro)
 	}
 
@@ -50,8 +54,8 @@ const Gralweb = () => {
 				<Header
 					location={ headerLocation }
 					menuOpen={ menuOpen }
-					onClick={ () => handleClickHeader() }
 					tema={ themeClaro }
+					onClick={ () => handleClickHeader() }
 				>
 				</Header>
 
@@ -60,13 +64,13 @@ const Gralweb = () => {
 				</Main>
 
 				<FloatBtnContent>
-					<FloatBtn type='theme' tema={ themeClaro } handleClick={ handleTheme } />
-					<FloatBtn type='newLetters' tema={ themeClaro } handleClick={ handleNewLetters } />	
+					<FloatBtn type='theme' handleClick={ handleTheme } />
+					<FloatBtn type='newLetters' handleClick={ handleNewLetters } />	
 				</FloatBtnContent>
 
 				<NewLetter newLettersOpen={ newLettersOpen } />
 
-				<Footer/>
+				<Footer tema={ themeClaro } />
 
 			</Router>			
 		</section>

@@ -1,0 +1,180 @@
+/* Fondos */
+body.oscuro {
+    background-color: var(--fondo-page-oscuro);
+}
+
+/* Header Fondos */
+body.oscuro .app-header {
+    background-color: var(--fondo-page-oscuro);
+}
+
+body.oscuro .app-header-nav {
+    box-shadow: 0 0 6px -5px var(--sombra-claro);
+}
+
+body.oscuro .app-location-item {
+    color: var(--color-font-claro);
+}
+
+body.oscuro .app-content-logo {
+    background-color: var(--fondo-page-oscuro);
+    box-shadow: 0px 0px 8px -5px var(--sombra-claro);
+}
+
+body.oscuro .app-logo-cat a {
+    color: var(--color-font-claro);
+}
+
+body.oscuro .app-btn-menu i {
+    color: var(--color-font-claro);
+}
+
+body.oscuro .app-btn-menu:hover {
+    background-color: var(--btn-hover-oscuro);
+}
+
+body.oscuro .app-nav-menu {
+    background-color: var(--fondo-page-oscuro);
+    box-shadow: 0px 3px 10px -10px var(--sombra-claro);
+}
+
+body.oscuro .app-list-item a {
+    color:var(--color-font-claro);
+}
+
+body.oscuro .app-list-item a:after {
+    background-color: var(--color-font-claro);
+}
+
+/* PopUp Error Conexion */
+body.oscuro .app-popup-err {
+    box-shadow: 0px 3px 10px -5px var(--sombra-claro);
+}
+
+/* Main Cartas */
+body.oscuro .app-cont-item {
+    box-shadow: 0px 0px 6px -5px var(--sombra-claro);
+}
+
+body.oscuro .app-item-text {
+	background-color: var(--fondo-cartas-oscuro);
+}
+
+body.oscuro .app-item-text p {
+    color: var(--color-font-claro);
+}
+
+body.oscuro .app-item-text p:nth-child(2) a {
+    color: var(--color-font-claro);
+}
+
+body.oscuro .app-item-text p:nth-child(2) a:after,
+body.oscuro .app-item-text p:nth-child(2) a:before {
+    background-color: var(--color-font-claro);
+}
+
+/* Presentacion */
+/* Presentacion Texto */
+body.oscuro .app-vista-cont-texto p {
+    color: var(--color-font-claro);
+}
+
+/* Contactos */
+/* Textos */
+body.oscuro .app-contac-form {
+    box-shadow: 0px 0px 8px -5px var(--sombra-claro);
+}
+
+/* Servicios */
+body.oscuro .app-serv-item {
+    background-color:  var(--color-oscuro);
+}
+
+body.oscuro .app-item-serv-title p {
+    color: var(--color-font-claro);
+}
+
+/* Bio Texto */
+body.oscuro .app-bio-sep {
+    color: var(--color-font-claro);
+}
+
+body.oscuro .app-bio-text {
+    color: var(--color-font-claro);
+}
+
+/* Paginacion */
+body.oscuro .app-paginacion a {
+    color: var(--color-font-oscuro);
+    box-shadow: 0px 0px 5px -4px var(--sombra-claro);
+}
+
+/* Boton Flotante */
+body.oscuro .app-float-btn-cont {
+    box-shadow: 0px 1px 2px -1px var(--sombra-claro);
+    background: var(--fondo-page-claro);
+}
+
+/* Boton Flotante para cambiar el Tema */
+body.oscuro .app-float-btn-theme .app-float-btn-theme-circle {
+    animation: FloatBtnOscuro 700ms linear both;
+    background-color: var(--color-oscuro);
+}
+
+/* Boton Flotante para el New Letter */
+body.oscuro .app-float-btn-cont:nth-child(2) {
+    background: var(--fondo-page-claro);
+}
+
+body.oscuro .app-float-btn-newLetters {
+    color: var(--color-font-oscuro);
+}
+
+/* New Letter Pop Up */
+body.oscuro .app-new-letter-cont {
+    box-shadow: 1px 1px 2px -1px var(--sombra-claro);
+    background-color: var(--color-claro);
+}
+
+body.oscuro .app-new-letter-msj {
+    color: var(--color-font-oscuro);
+}
+
+body.oscuro .app-new-letter-input input {
+    box-shadow: 0px 1px 3px -1px var(--color-oscuro);
+}
+
+body.oscuro .app-new-letter-err-email.process {
+    background-color: var(--color-claro-t);
+}
+
+/* Footer */
+body.oscuro .app-footer {
+    background-color: var(--fondo-page-oscuro);
+    box-shadow: -1px -1px 4px -5px var(--sombra-claro);
+}
+
+body.oscuro .app-footer-content {
+    background-color: var(--fondo-page-oscuro);
+    box-shadow: 0px -2px 5px -5px var(--sombra-claro);
+}
+
+body.oscuro #app-footer-logo {
+    border-color: var(--color-claro);
+}
+
+body.oscuro .app-content-year p {
+    color: var(--color-font-claro);
+}
+
+/* Loader Global */
+body.oscuro #app-main-loader.process {
+    border-top-color: #fafafa;
+}
+
+@media screen and (max-width: 600px) {
+    /* Boton de Hamburguesa del menu - animacion */
+    body.oscuro .app-btn-menu {
+        background-color: var(--btn-hover-oscuro);
+    }
+}

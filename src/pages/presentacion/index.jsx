@@ -9,7 +9,7 @@ import FetchPresentacionCartsData from './FetchPresentacionCartsData'
 const RenderPresentacion = ({ nameCart }) => {
 	const [ scaleAnim, setScaleAnim ] = useState(false)
 	const [ presentacionCartsData, setPresentacionCartsData ] = useState(null)
-	const [conexionError, setConexionError] = useState(false)
+	const [ conexionError, setConexionError ] = useState(false)
 	const [ countErr, setCountErr ] = useState(0)
 	const [ zoomOpen, setZoomOpen ] = useState(false)
 

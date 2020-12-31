@@ -19,7 +19,7 @@ const Routing = ({ handleLocationHeader }) => {
 			<Route
 				exact
 				path='/portafolio'
-				render={ () => <RenderPortafolio headerLocation={ handleLocationHeader } pageTarget='1' /> }
+				render={ () => <RenderPortafolio headerLocation={handleLocationHeader} pageTarget='1' /> }
 			/>
 			<Route
 				exact
