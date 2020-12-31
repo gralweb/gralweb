@@ -2,7 +2,8 @@ const FetchServicios = [
 	{
 	    plan: "Basic",
 	    estilo: "app-serv-basico",
-		precio: "100",
+		// precio: "100",
+		precio: "70",
 		ser_1: "Diseño Responsive",
 		ser_2: "3 secciones",
 		ser_3: "Basado en Plantillas",
@@ -12,7 +13,8 @@ const FetchServicios = [
 	{
 	    plan: "Premiun",
 	    estilo: "app-serv-premiun",
-		precio: "400",
+		// precio: "400",
+		precio: "150",
 		ser_1: "Diseño Responsive",
 		ser_2: "5 secciones",
 		ser_3: "Base de Datos",
@@ -22,7 +24,8 @@ const FetchServicios = [
 	{
 	    plan: "Golden",
 	    estilo: "app-serv-golden",
-		precio: "800",
+		// precio: "800",
+		precio: "230",
 		ser_1: "7 secciones",
 		ser_2: "Base de Datos",
 		ser_3: "Administrable",
