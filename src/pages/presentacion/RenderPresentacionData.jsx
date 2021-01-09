@@ -7,6 +7,7 @@ import RenderPresentacionImg from './RenderPresentacionImg';
 const RenderPresentacionData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zoomHandleOpen) => {
 	const { titulo, descripcion } = datos
 	const scaleAnim = scaleAnimBoolean ? 'app-cont-item-scale' : null
+	document.title = `${document.title.slice(0, 9)} ${titulo}`
 
 	return (
 		<div className='app-main-cont'>

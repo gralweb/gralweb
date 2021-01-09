@@ -151,7 +151,7 @@ body.oscuro .app-new-letter-err-email.process {
 /* Footer */
 body.oscuro .app-footer {
     background-color: var(--fondo-page-oscuro);
-    box-shadow: -1px -1px 4px -5px var(--sombra-claro);
+    box-shadow: 0px 0px 6px -5px var(--sombra-claro);
 }
 
 body.oscuro .app-footer-content {

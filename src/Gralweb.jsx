@@ -31,7 +31,7 @@ const Gralweb = () => {
 		portafolio: () => setHeaderLocation('Portafolio'),
 		servicios: () => setHeaderLocation('DevWeb'),
 		contactos: () => setHeaderLocation('Contactos'),
-		bio: () => setHeaderLocation('Bio')
+		bio: () => setHeaderLocation('Bío')
 	}
 
 	const handleClickHeader = () => {

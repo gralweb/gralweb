@@ -22,6 +22,7 @@ const RenderContactos = ({ headerLocation }) => {
 	useEffect(() => {
 		setScaleAnim(true)
 
+		document.title = `${document.title.slice(0, 9)} Contactos`
         headerLocation.contactos()
 
         if (conexionError) {

@@ -13,6 +13,7 @@ const RenderServicios = ({ headerLocation }) => {
 	useEffect(() => {
 		setScaleAnim(true);
 
+		document.title = `${document.title.slice(0, 9)} Servicios`
 		headerLocation.servicios()
 
 		setServiciosCarts(FetchServicios);

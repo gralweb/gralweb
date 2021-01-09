@@ -15,7 +15,7 @@ const HeaderNav = ( { menuState, eventClick } ) => {
                     <Link to='/contactos'>Contactos</Link>
                 </li>
                 <li className='app-list-item' onClick={ eventClick }>
-                    <Link to='/bio'>Bio</Link>
+                    <Link to='/bio'>Bío</Link>
                 </li>
             </ul>
         </div>

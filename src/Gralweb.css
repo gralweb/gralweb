@@ -89,11 +89,13 @@ body.zoom {
 }
 
 #app-location {
+    cursor: default;
     padding-left: 5px;
     font-size: 1.1rem;
 }
 
 .app-location-sep {
+    cursor: default;
     display: inline;
     padding-bottom:  2px;
 }
@@ -250,6 +252,7 @@ body.zoom {
     line-height: 25px;
     display: block;
     padding: 5px;
+    cursor: default;
     font-weight: bold;
     color: var(--color-font-medio);
 }
@@ -313,6 +316,7 @@ body.zoom {
 .app-item-text p {
     display: inline-block;
     width: 45%;
+    cursor: default;
 }
 
 .app-item-text p:nth-child(1) {
@@ -440,6 +444,7 @@ body.zoom {
 .app-vista {
     min-height: 180px;
     margin: 1px;
+    cursor: pointer;
     position: relative;
 }
 
@@ -537,6 +542,7 @@ body.zoom {
 .app-form-title {
     display: block;
     padding: 10px;
+    cursor: default;
     text-align: center;
 }
 
@@ -767,6 +773,7 @@ body.zoom {
 /* Contenido - Titulos de los servicios */
 .app-serv-item {
     padding-bottom: 20px;
+    cursor: default;
 }
 
 .app-item-serv-title p {
@@ -835,7 +842,9 @@ body.zoom {
 .app-bio {
     position: relative;
     min-width: 100%;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Contenido - Foto identificador */
@@ -845,7 +854,11 @@ body.zoom {
     float: left;
     visibility: hidden;
     margin-left: -200px;
-    padding: 30px 10px 30px 10px;
+    padding: 20px 10px;
+}
+
+.app-bio-foto img {
+    width: 100%;
 }
 
 .app-bio-cont-foto-anim {
@@ -856,11 +869,6 @@ body.zoom {
 .app-bio-sep {
     display: none;
     font-size: 1.3rem;
-}
-
-.app-bio-foto img {
-    height: 98%;
-    width: 180px;
 }
 
 /* Contenido - Texto de la bio */
@@ -879,11 +887,12 @@ body.zoom {
 }
 
 .app-bio-text {
-    display: block;
-    padding: 20px 20px 0 20px;
-    text-align: justify;
-    font-size: .9rem;
     line-height: 25px;
+    font-size: .7rem;
+    display: block;
+    padding: 10px;
+    padding-left: 20px;
+    text-align: justify;
     letter-spacing: 1px;
 }
 
@@ -1033,6 +1042,7 @@ body.zoom {
     text-align: justify;
     display: block;
     margin: 2px;
+    cursor: default;
     font-size: .8rem;
 }
 
@@ -1058,6 +1068,10 @@ body.zoom {
     padding: 7px;
     width: 100%;
     font-size: .7rem;
+}
+
+.app-new-letter-input input:focus {
+    outline: none;
 }
 
 .app-new-letter-btn {
@@ -1198,6 +1212,7 @@ body.zoom {
 .app-content-year p {
     font-weight: bold;
     font-size: .8rem;
+    cursor: default;
 }
 
 /* Loader Global */
