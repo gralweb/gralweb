@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 // Componentes
 import LoaderApp from './../../components/LoaderApp'
@@ -27,14 +27,17 @@ const RenderPresentacion = ({ nameCart }) => {
 		)
 	}
 
-	const fetchData = () => {
-		FetchPresentacionCartsData( nameCart ).then(datos => {
- 			setPresentacionCartsData(datos)
-		}).catch(err => {
-			setCountErr(countErr + 1)
-			setConexionError(!conexionError)
-		})
-	}
+	const fetchData = useCallback(
+		() => {
+			FetchPresentacionCartsData( nameCart ).then(datos => {
+ 				setPresentacionCartsData(datos)
+			}).catch(err => {
+				setCountErr(countErr + 1)
+				setConexionError(!conexionError)
+			})
+		},
+		[ nameCart, countErr, conexionError ],
+	)
 
 	useEffect(() => {
 		setScaleAnim(true)
@@ -63,13 +66,7 @@ const RenderPresentacion = ({ nameCart }) => {
 			document.querySelector('body').classList.remove('zoom')
 		}
 
-	}, [ 
-		setScaleAnim, presentacionCartsData,
-		nameCart, setPresentacionCartsData,
-		zoomOpen, zoomImgList,
-		setConexionError, conexionError,
-		countErr, setCountErr
-		])
+	}, [ setScaleAnim, presentacionCartsData, nameCart, fetchData, setPresentacionCartsData, zoomOpen, zoomImgList, setConexionError, conexionError, countErr, setCountErr ])
 
 	return (
 		presentacionCartsData ?

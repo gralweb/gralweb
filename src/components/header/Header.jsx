@@ -1,5 +1,5 @@
 // Dependecias
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 // Componentes
@@ -11,17 +11,20 @@ import { ASSETS_URL } from './../constans'
 const Header = ({ location, tema, menuOpen, onClick }) => {
     const tagbody = document.querySelector('body')
 
-    const handleTemaBody = () => {
-        if (tagbody) {
-            if (tema) {
-                tagbody.classList.add('claro')
-                tagbody.classList.remove('oscuro')
-            } else {
-                tagbody.classList.add('oscuro')
-                tagbody.classList.remove('claro')
-            }
-        }
-    }
+    const handleTemaBody = useCallback(
+        () => {
+            if (tagbody) {
+                if (tema) {
+                    tagbody.classList.add('claro')
+                    tagbody.classList.remove('oscuro')
+                } else {
+                    tagbody.classList.add('oscuro')
+                    tagbody.classList.remove('claro')
+                }
+            }     
+        },
+        [tagbody, tema]
+    )
 
     useEffect(() => {
        handleTemaBody()

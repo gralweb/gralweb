@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 // Componentes
 import PopUpConexion from './../../components/PopUpConexion'
@@ -15,9 +15,12 @@ const RenderContactos = ({ headerLocation }) => {
 		)
 	}
 
-	const handleStateConexion = () => {
-		setConexionError(!conexionError)
-	}
+	const handleStateConexion = useCallback(
+		() => {
+			setConexionError(!conexionError)
+		},
+		[ setConexionError, conexionError ],
+	)
 
 	useEffect(() => {
 		setScaleAnim(true)
@@ -31,7 +34,7 @@ const RenderContactos = ({ headerLocation }) => {
 			}, 2000)
         }
 
-    }, [ headerLocation, conexionError ])
+    }, [ headerLocation, conexionError, handleStateConexion ])
 
 	return (
 		<div className='app-main-cont'>

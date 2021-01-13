@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 // Componentes
 import LoaderApp from './../../components/LoaderApp'
@@ -26,23 +26,26 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 		setPortafolioData(null)
 	}
 
-	const fetchData = () => {
-		FetchPortafolioCarts(parseInt(pageTarget)).then(r => {
-			const { datos, pages, estado } = r
+	const fetchData = useCallback(
+		() => {
+			FetchPortafolioCarts(parseInt(pageTarget)).then(r => {
+				const { datos, pages, estado } = r
 
-			if (estado && estado === 'conexion_fallo') {
+				if (estado && estado === 'conexion_fallo') {
+					setCountErr(countErr + 1)
+					setConexionError(!conexionError)
+				} else if (datos) {
+					setPortafolioData(datos)
+					setNumPages(parseInt(pages))
+				}
+			
+			}).catch(r => {
 				setCountErr(countErr + 1)
 				setConexionError(!conexionError)
-			} else if (datos) {
-				setPortafolioData(datos)
-				setNumPages(parseInt(pages))
-			}
-			
-		}).catch(r => {
-			setCountErr(countErr + 1)
-			setConexionError(!conexionError)
-		})
-	}
+			})
+		},
+		[ pageTarget, countErr, conexionError ],
+	)
 
 	useEffect(() => {
 		setScaleAnim(true)
@@ -62,7 +65,7 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 				setCountErr(0)
 			}, 30000)
 		}
-	}, [ setScaleAnim, headerLocation, portafolioData, setPortafolioData, setConexionError, conexionError, countErr, setCountErr, numPages, setNumPages ])
+	}, [ setScaleAnim, headerLocation, fetchData, portafolioData, setPortafolioData, setConexionError, conexionError, countErr, setCountErr, numPages, setNumPages ])
 
 	return (
 		portafolioData ?

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 // Componentes
 import PopUpConexion from './../PopUpConexion'
@@ -13,9 +13,12 @@ const NewLetter = ({ newLettersOpen }) => {
 		)
 	}
 
-	const handleStateConexion = () => {
-		setConexionError(!conexionError)
-	}
+	const handleStateConexion = useCallback(
+		() => {
+			setConexionError(!conexionError)
+		},
+		[ setConexionError, conexionError ],
+	)
 
 	useEffect(() => {
         if (conexionError) {
@@ -23,7 +26,7 @@ const NewLetter = ({ newLettersOpen }) => {
 				handleStateConexion()
 			}, 2000)
         }
-    }, [ conexionError ])
+    }, [ conexionError, handleStateConexion ])
 
 	return (
 		<div className={ (newLettersOpen) ? 'app-new-letter-cont open' : 'app-new-letter-cont' }>
