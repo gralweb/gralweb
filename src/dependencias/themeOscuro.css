@@ -75,8 +75,13 @@ body.oscuro .app-item-text p:nth-child(2) a:before {
 
 /* Presentacion */
 /* Presentacion Texto */
-body.oscuro .app-vista-cont-texto p {
+body.oscuro .app-vista-cont-titulo,
+body.oscuro .app-vista-cont-texto {
     color: var(--color-font-claro);
+}
+
+body.oscuro .app-zoom-cont-close-btn .app-btn-menu {
+    background-color: var(--btn-hover-oscuro);
 }
 
 /* Contactos */

@@ -75,8 +75,13 @@ body.claro .app-item-text p:nth-child(2) a:before {
 
 /* Presentacion */
 /* Presentacion Texto */
-body.claro .app-vista-cont-texto p {
+body.claro .app-vista-cont-titulo,
+body.claro .app-vista-cont-texto {
     color: var(--color-font-oscuro);
+}
+
+body.claro .app-zoom-cont-close-btn .app-btn-menu {
+    background-color: var(--btn-hover-claro);
 }
 
 /* Contactos */

@@ -27,7 +27,7 @@ const PresentacionImg = ({ scaleAnim, img, titulo, handleZoom }) => {
 		>
 
 	        <figure className='app-item-img app-vista-foto'>
-	            <img src={ `${ ASSETS_URL }/assets/${ img.foto }` } alt={ titulo } />
+	            <img src={ `${ ASSETS_URL }/assets/${ img.foto }` } alt={ titulo } title={ titulo } />
 	        </figure>
 	        <figcaption className='app-vista-zoom'>
 	            <div className='app-zoom'>

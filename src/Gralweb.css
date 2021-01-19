@@ -509,18 +509,24 @@ body.zoom {
 }
 
 /* Contenido - Texto de las presentaciones */
+.app-vista-cont-titulo,
 .app-vista-cont-texto {
+    min-width: 270px;
     max-width: 524px;
-    margin: auto;
     display: block;
-    margin-top: 20px;
-    padding-bottom: 20px;
+    width: 100%;
+    margin: auto;
+    padding: 10px;
 }
 
-.app-vista-cont-texto p {
+.app-vista-cont-titulo {
+    text-transform: capitalize;
+    letter-spacing: .02em;
+}
+
+.app-vista-cont-texto {
     text-align: justify;
     font-size: .9rem;
-    line-height: 20px;
     letter-spacing: .03em;
 }
 
@@ -1294,7 +1300,7 @@ body.zoom {
     }
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 520px) {
     .app-zoom-foto {
         max-height: calc(100vh - 10px);
         max-width: calc(100vw - 10px);
@@ -1308,10 +1314,9 @@ body.zoom {
         margin: 5px auto;
     }
 
+    .app-vista-cont-titulo,
     .app-vista-cont-texto {
-        margin-top: 5px;
-        padding: 20px;
-        font-size: 1em;
+        width: auto;
     }
 
     .app-form-line {

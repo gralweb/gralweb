@@ -29,6 +29,14 @@ const RenderPresentacionData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zo
 			    }
 			</div>
 
+			<div className='app-vista-cont-titulo'>
+			    <h2>
+			        {
+			        	titulo
+			        }
+			    </h2>
+			</div>
+
 			<div className='app-vista-cont-texto'>
 			    <p>
 			        {

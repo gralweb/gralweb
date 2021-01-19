@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { ASSETS_URL } from './../constans'
 
 const Footer = ({ tema }) => {
+    const fecha = new Date()
+
   	return (
         <footer id='app-footer' className='app-footer'>
         	<div className='app-footer-content'>
@@ -21,7 +23,7 @@ const Footer = ({ tema }) => {
                 </div>
 
                 <div className='app-content-year'>
-                    <p>2020</p>
+                    <p>{ fecha.getFullYear() }</p>
                     <p>&copy;</p>
                 </div>
             </div>
