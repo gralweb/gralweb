@@ -109,6 +109,7 @@ body.zoom {
     right: 0;
     margin: auto;
     display: block;
+    overflow: hidden;
     border-radius: 100%;
 }
 
@@ -516,18 +517,20 @@ body.zoom {
     display: block;
     width: 100%;
     margin: auto;
-    padding: 10px;
+    padding: 5px;
 }
 
 .app-vista-cont-titulo {
     text-transform: capitalize;
     letter-spacing: .02em;
+    padding-top: 30px;
 }
 
 .app-vista-cont-texto {
     text-align: justify;
     font-size: .9rem;
     letter-spacing: .03em;
+    padding-bottom: 30px;
 }
 
 /* Pagina de Contactos */

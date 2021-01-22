@@ -11,7 +11,7 @@ import Footer from './components/footer/Footer'
 import FloatBtnContent from './components/floatBtn/FloatBtnContent'
 import FloatBtn from './components/floatBtn/FloatBtn'
 // New Letters
-import NewLetter from './components/newLetter/NewLetter'
+// import NewLetter from './components/newLetter/NewLetter'
 
 // Styles
 import './dependencias/icofont.min.css'
@@ -24,7 +24,7 @@ const Gralweb = () => {
 	const [headerLocation, setHeaderLocation] = useState('Portafolio')
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [themeClaro, setTheme] = useState((localStorage.getItem('theme') !== null) ? JSON.parse(localStorage.getItem('theme')) : true)
-	const [newLettersOpen, setNewLettersOpen] = useState(false)
+	// const [newLettersOpen, setNewLettersOpen] = useState(false)
 
 	// Funciones de Handle
 	const handleUpdateHeaderLocation = {
@@ -43,9 +43,9 @@ const Gralweb = () => {
 		setTheme(!themeClaro)
 	}
 
-	const handleNewLetters = () => {
-		setNewLettersOpen(!newLettersOpen)
-	}
+	// const handleNewLetters = () => {
+	// 	setNewLettersOpen(!newLettersOpen)
+	// }
 
 	return (
 		<section>
@@ -64,11 +64,11 @@ const Gralweb = () => {
 				</Main>
 
 				<FloatBtnContent>
-					<FloatBtn type='theme' handleClick={ handleTheme } />
-					<FloatBtn type='newLetters' handleClick={ handleNewLetters } />	
+					<FloatBtn type='theme' handleClick={ handleTheme } titulo='Cambiar Tema' />
+					{/*<FloatBtn type='newLetters' handleClick={ handleNewLetters } />	*/}
 				</FloatBtnContent>
 
-				<NewLetter newLettersOpen={ newLettersOpen } />
+				{/*<NewLetter newLettersOpen={ newLettersOpen } />*/}
 
 				<Footer tema={ themeClaro } />
 
