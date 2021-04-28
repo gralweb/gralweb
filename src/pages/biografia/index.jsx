@@ -16,12 +16,16 @@ const RenderBiografia = ({ headerLocation }) => {
   	return (
         <div className='app-main-cont'>
       		<div className='app-bio'>
-                <div className={ animationLoad ? 'app-bio-cont-foto app-bio-cont-foto-anim' : 'app-bio-cont-foto'}>
+                <div 
+                    className={`app-bio-cont-foto ${animationLoad ? 'app-bio-cont-foto-anim' : ''}`}
+                >
                     <span className='icofont-robot-face app-bio-sep'></span>
                     <img className='app-bio-foto' src={ `${ ASSETS_URL }/logo/face.jpg` } alt='Foto George Alviarez' />
                 </div>
                 
-                <div className={ animationLoad ? 'app-bio-cont-text app-bio-cont-text-anim' : 'app-bio-cont-text'}>
+                <div 
+                    className={`app-bio-cont-text ${animationLoad ? 'app-bio-cont-text-anim' : ''}`}
+                >
                     <p className='app-bio-text'>
                         Hola, mi nombre es George Alviarez y soy desarrollador web. Soy de Venezuela - Estado Lara y tengo actualmente 19 años de edad. Me gustan los comics, el baloncesto, los video juegos y más que todo la tecnología.
                     </p>
