@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useContext } from 'react'
+import { ContextApp } from './../../store'
 
 // Componentes
 import LoaderApp from './../../components/LoaderApp'
@@ -8,11 +9,11 @@ import FetchPortafolioCarts from './FetchPortafolioCarts'
 import RenderPortafolioData from './RenderPortafolioData'
 
 const RenderPortafolio = ({ headerLocation, pageTarget }) => {
+	const { store, actions } = useContext(ContextApp)
+
 	const [ scaleAnim, setScaleAnim ] = useState(false)
-	const [ portafolioData, setPortafolioData ] = useState(null)
 	const [ conexionError, setConexionError ] = useState(false)
 	const [ countErr, setCountErr ] = useState(0)
-	const [ numPages, setNumPages ] = useState(null)
 
 	const loader = () => {
 		return (
@@ -22,9 +23,9 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 		)
 	}
 
-	const restoreDataCarts = () => {
-		setPortafolioData(null)
-	}
+	// const restoreDataCarts = () => {
+	// 	setPortafolioData(null)
+	// }
 
 	const fetchData = useCallback(
 		() => {
@@ -35,8 +36,8 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 					setCountErr(countErr + 1)
 					setConexionError(!conexionError)
 				} else if (datos) {
-					setPortafolioData(datos)
-					setNumPages(parseInt(pages))
+					actions.addCarts(datos)
+					actions.addNumPages(parseInt(pages))
 				}
 			
 			}).catch(r => {
@@ -44,7 +45,7 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 				setConexionError(!conexionError)
 			})
 		},
-		[ pageTarget, countErr, conexionError ],
+		[ actions, pageTarget, countErr, conexionError ],
 	)
 
 	useEffect(() => {
@@ -53,7 +54,7 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 		document.title = `${document.title.slice(0, 9)} Portafolio`
 		headerLocation.portafolio()
 
-		if ( portafolioData === null) {
+		if ( store.carts.length < 1 ) {
 			if (countErr < 3) {
 				fetchData()
 			}
@@ -65,18 +66,26 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 				setCountErr(0)
 			}, 30000)
 		}
-	}, [ setScaleAnim, headerLocation, fetchData, portafolioData, setPortafolioData, setConexionError, conexionError, countErr, setCountErr, numPages, setNumPages ])
+	}, [ headerLocation, store, fetchData, conexionError, countErr ])
+
+	if ( store.carts.length < 1 ) {
+		return (
+			loader()
+		)
+	}
 
 	return (
-		portafolioData ?
 		<div className='app-main-cont'>
 			{
-				RenderPortafolioData( portafolioData, scaleAnim )
+				RenderPortafolioData( store.carts, scaleAnim )
 			}
 
-			<Paginacion paginas={numPages} pageTarget={parseInt(pageTarget)} handleClick={restoreDataCarts} />
-		</div> :
-		loader()
+			<Paginacion 
+				paginas={store.numPages}
+				pageTarget={parseInt(pageTarget)}
+				// handleClick={restoreDataCarts} 
+			/>
+		</div>
 	)
 }
 

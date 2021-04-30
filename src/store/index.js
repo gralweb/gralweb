@@ -22,6 +22,13 @@ const GralwebProvider = ({ children }) => {
 	// Metodo para guardar las imagenes de las cartas
     const addCartImgs = cartDataImgs => {
         setCartImgs({...cartImgs, ...cartDataImgs})
+	}
+	
+	// Estado para las imagenes de las cartas
+	const [numPages, setNumPages] = useState(1)
+	// Metodo para guardar las imagenes de las cartas
+    const addNumPages = pages => {
+        setNumPages(pages)
     }
 
 	// Colocando Estados y Metodos en variable global para pasarlo al provider
@@ -29,12 +36,14 @@ const GralwebProvider = ({ children }) => {
 		store: {
 			carts,
 			cart,
-			cartImgs
+			cartImgs,
+			numPages
 		},
 		actions: {
 			addCarts,
 			addCart,
-			addCartImgs
+			addCartImgs,
+			addNumPages
 		}
 	}
 
