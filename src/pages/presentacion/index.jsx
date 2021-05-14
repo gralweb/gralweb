@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useContext } from 'react'
+import { ContextApp } from './../../store'
 
 // Componentes
 import LoaderApp from './../../components/LoaderApp'
@@ -7,8 +8,9 @@ import RenderPresentacionData from './RenderPresentacionData'
 import FetchPresentacionCartsData from './FetchPresentacionCartsData'
 
 const RenderPresentacion = ({ nameCart }) => {
+	const { store: { cart, cartImgs }, actions: { addCartImgs, addCart } } = useContext(ContextApp)
+
 	const [ scaleAnim, setScaleAnim ] = useState(false)
-	const [ presentacionCartsData, setPresentacionCartsData ] = useState(null)
 	const [ conexionError, setConexionError ] = useState(false)
 	const [ countErr, setCountErr ] = useState(0)
 	const [ zoomOpen, setZoomOpen ] = useState(false)
@@ -29,20 +31,40 @@ const RenderPresentacion = ({ nameCart }) => {
 
 	const fetchData = useCallback(
 		() => {
-			FetchPresentacionCartsData( nameCart ).then(datos => {
- 				setPresentacionCartsData(datos)
-			}).catch(err => {
+			FetchPresentacionCartsData( nameCart )
+			.then(data => {
+				const { datos, fotos } = data
+				
+				const datosTrans = {}
+				const fotosTrans = {}
+
+				const transFunct = typeTrans => {
+					if (typeTrans === 'fotos') {
+						fotosTrans[datos.titulo] = fotos
+						addCartImgs(fotosTrans)
+					} else {
+						datosTrans[datos.titulo] = datos
+						addCart(datosTrans)
+					}
+				}
+
+				// Ejecutamos para guardar los datos
+				transFunct()
+				// Ejecutamos para guardar las fotos
+				transFunct('fotos')
+			})
+			.catch(err => {
 				setCountErr(countErr + 1)
 				setConexionError(!conexionError)
 			})
 		},
-		[ nameCart, countErr, conexionError ],
+		[ nameCart, countErr, conexionError, addCart, addCartImgs ],
 	)
 
 	useEffect(() => {
 		setScaleAnim(true)
 
-		if (presentacionCartsData === null) {
+		if (typeof cart[nameCart] !== 'object') {
 			if (countErr < 3) {
 				fetchData()
 			}
@@ -66,13 +88,15 @@ const RenderPresentacion = ({ nameCart }) => {
 			document.querySelector('body').classList.remove('zoom')
 		}
 
-	}, [ setScaleAnim, presentacionCartsData, nameCart, fetchData, setPresentacionCartsData, zoomOpen, zoomImgList, setConexionError, conexionError, countErr, setCountErr ])
+	}, [ cart, cartImgs, nameCart, fetchData, zoomOpen, zoomImgList, conexionError, countErr ])
 
 	return (
-		presentacionCartsData ?
-		RenderPresentacionData(presentacionCartsData, scaleAnim, zoomOpen, zoomHandleOpen)
-		:
-		loader()
+		(typeof cart[nameCart] !== 'object' || typeof cartImgs[nameCart] !== 'object') ?
+		loader() :
+		RenderPresentacionData(
+			{ datos: cart[nameCart], fotos: cartImgs[nameCart] },
+			scaleAnim, zoomOpen, zoomHandleOpen
+		)
 	)
 }
 
