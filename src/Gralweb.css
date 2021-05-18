@@ -297,7 +297,7 @@ body.zoom {
 
 /* Contenido - Imagen de las cartas de los Articulos */
 .app-item-img {
-    height: 180px;
+    max-height: 160px;
     overflow: hidden;
     border-radius: 10px 10px 0 0;
 }
@@ -443,7 +443,7 @@ body.zoom {
 
 /* Vista normal de la presentacion */
 .app-vista {
-    min-height: 180px;
+    /* min-height: 160px; */
     margin: 1px;
     cursor: pointer;
     position: relative;
@@ -484,6 +484,7 @@ body.zoom {
     position: absolute;
     visibility: hidden;
     height: 100%;
+    max-height: 160px;
     width: 100%;
     display: flex;
     top: 0;
