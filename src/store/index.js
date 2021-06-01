@@ -4,10 +4,10 @@ const ContextApp = createContext(null)
 
 const GralwebProvider = ({ children }) => {
 	// Estado de los Datos de las Cartas
-	const [ carts, setCarts ] = useState([])
+	const [ carts, setCarts ] = useState({})
 	// Metodo Para Añadir los datos de las cartas
 	const addCarts = newCarts => {
-		setCarts([...carts, ...newCarts])
+		setCarts({...carts, ...newCarts})
 	}
 
 	// Estado para Datos completos de las cartas

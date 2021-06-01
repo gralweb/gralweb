@@ -9,7 +9,7 @@ import FetchPortafolioCarts from './FetchPortafolioCarts'
 import RenderPortafolioData from './RenderPortafolioData'
 
 const RenderPortafolio = ({ headerLocation, pageTarget }) => {
-	const { store, actions } = useContext(ContextApp)
+	const { store: { carts, numPages }, actions } = useContext(ContextApp)
 
 	const [ scaleAnim, setScaleAnim ] = useState(false)
 	const [ conexionError, setConexionError ] = useState(false)
@@ -23,10 +23,6 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 		)
 	}
 
-	// const restoreDataCarts = () => {
-	// 	setPortafolioData(null)
-	// }
-
 	const fetchData = useCallback(
 		() => {
 			FetchPortafolioCarts(parseInt(pageTarget)).then(r => {
@@ -36,7 +32,11 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 					setCountErr(countErr + 1)
 					setConexionError(!conexionError)
 				} else if (datos) {
-					actions.addCarts(datos)
+					let transfData = {}
+
+					transfData[parseInt(pageTarget)] = datos
+
+					actions.addCarts(transfData)
 					actions.addNumPages(parseInt(pages))
 				}
 			
@@ -54,7 +54,7 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 		document.title = `${document.title.slice(0, 9)} Portafolio`
 		headerLocation.portafolio()
 
-		if ( store.carts.length < 1 ) {
+		if ( typeof carts[parseInt(pageTarget)] !== 'object' ) {
 			if (countErr < 3) {
 				fetchData()
 			}
@@ -66,9 +66,9 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 				setCountErr(0)
 			}, 30000)
 		}
-	}, [ headerLocation, store, fetchData, conexionError, countErr ])
+	}, [ headerLocation, carts, fetchData, conexionError, countErr, pageTarget ])
 
-	if ( store.carts.length < 1 ) {
+	if ( typeof carts[parseInt(pageTarget)] !== 'object' ) {
 		return (
 			loader()
 		)
@@ -77,11 +77,11 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 	return (
 		<div className='app-main-cont'>
 			{
-				RenderPortafolioData( store.carts, scaleAnim )
+				RenderPortafolioData( carts[parseInt(pageTarget)], scaleAnim )
 			}
 
 			<Paginacion 
-				paginas={store.numPages}
+				paginas={numPages}
 				pageTarget={parseInt(pageTarget)}
 				// handleClick={restoreDataCarts} 
 			/>
