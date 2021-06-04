@@ -1,7 +1,7 @@
 const FetchServicios = [
 	{
-	    plan: "Basic",
-	    estilo: "app-serv-basico",
+		plan: "Basic",
+		estilo: "app-serv-basico",
 		// precio: "100",
 		precio: "70",
 		ser_1: "Diseño Responsive",
@@ -11,8 +11,8 @@ const FetchServicios = [
 		ser_5: "Delivery 2 semanas",
 	},
 	{
-	    plan: "Premiun",
-	    estilo: "app-serv-premiun",
+		plan: "Premiun",
+		estilo: "app-serv-premiun",
 		// precio: "400",
 		precio: "150",
 		ser_1: "Diseño Responsive",
@@ -22,8 +22,8 @@ const FetchServicios = [
 		ser_5: "Delivery 4 semanas",
 	},
 	{
-	    plan: "Golden",
-	    estilo: "app-serv-golden",
+		plan: "Golden",
+		estilo: "app-serv-golden",
 		// precio: "800",
 		precio: "230",
 		ser_1: "7 secciones",
@@ -33,8 +33,8 @@ const FetchServicios = [
 		ser_5: "Delivery 8 semanas",
 	},
 	{
-	    plan: "Custom",
-	    estilo: "app-serv-ultra",
+		plan: "Custom",
+		estilo: "app-serv-ultra",
 		precio: "calcular",
 		ser_1: "secciones?",
 		ser_2: "Base de Datos?",
@@ -44,4 +44,4 @@ const FetchServicios = [
 	}
 ]
 
-export default FetchServicios;
+export default FetchServicios

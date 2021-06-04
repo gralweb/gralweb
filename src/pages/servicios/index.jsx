@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 // Componentes
-import LoaderApp from './../../components/LoaderApp';
+import LoaderApp from './../../components/LoaderApp'
 
-import FetchServicios from './FetchServicios';
-import RenderServiciosData from './RenderServiciosData';
+import FetchServicios from './acciones/FetchServicios'
+import RenderServiciosData from './acciones/RenderServiciosData'
 
 const RenderServicios = ({ headerLocation }) => {
-	const [scaleAnim, setScaleAnim] = useState(false);
-	const [serviciosCarts, setServiciosCarts] = useState(null);
+	const [scaleAnim, setScaleAnim] = useState(false)
+	const [serviciosCarts, setServiciosCarts] = useState(null)
 
 	useEffect(() => {
 		setScaleAnim(true);
@@ -19,15 +19,15 @@ const RenderServicios = ({ headerLocation }) => {
 		setServiciosCarts(FetchServicios);
 	}, [setScaleAnim, headerLocation, setServiciosCarts])
 
+	if ( !serviciosCarts ) { return LoaderApp() }
+
 	return (
-		serviciosCarts ?
 		<div className='app-main-cont'>
 			{
 				RenderServiciosData( serviciosCarts, scaleAnim )
 			}
-		</div> :
-		LoaderApp()
-	);
+		</div>
+	)
 }
 
-export default RenderServicios;
+export default RenderServicios
