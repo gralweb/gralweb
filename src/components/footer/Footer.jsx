@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Componentes
 import { ASSETS_URL } from './../constans'
@@ -7,9 +7,9 @@ import { ASSETS_URL } from './../constans'
 const Footer = ({ tema }) => {
     const fecha = new Date()
 
-  	return (
+    return (
         <footer id='app-footer' className='app-footer'>
-        	<div className='app-footer-content'>
+            <div className='app-footer-content'>
                 <div id='app-footer-logo' className='app-content-logo app-logo-cat'>
                     <figure className='app-logo-img'>
                         <Link to='/portafolio'>
@@ -28,7 +28,7 @@ const Footer = ({ tema }) => {
                 </div>
             </div>
         </footer>
-	);
+	)
 }
 
-export default Footer;
+export default Footer

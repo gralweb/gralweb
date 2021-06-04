@@ -43,7 +43,8 @@ const newLetterValidate = (e, campError) => {
 					elementos.loaderCont.classList.remove('process')
 					elementos.contIcons.classList.remove('process')
 				}, 2000)	
-			}).catch(err => {
+			})
+			.catch(err => {
 				campError()
 			})
 		}

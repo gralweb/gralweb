@@ -7,11 +7,9 @@ import newLetterValidate from './acciones/newLetterValidate'
 const NewLetter = ({ newLettersOpen }) => {
 	const [ conexionError, setConexionError ] = useState(false)
 
-	const PopUp = () => {
-		return (
-			(conexionError) ? <PopUpConexion active={conexionError} locacion='contactos' /> : null
-		)
-	}
+	const PopUp = () => (
+		(conexionError) ? <PopUpConexion active={conexionError} locacion='contactos' /> : null
+	)
 
 	const handleStateConexion = useCallback(
 		() => {
@@ -22,14 +20,14 @@ const NewLetter = ({ newLettersOpen }) => {
 
 	useEffect(() => {
         if (conexionError) {
-        	setTimeout(() => {
+			setTimeout(() => {
 				handleStateConexion()
 			}, 2000)
         }
     }, [ conexionError, handleStateConexion ])
 
 	return (
-		<div className={ (newLettersOpen) ? 'app-new-letter-cont open' : 'app-new-letter-cont' }>
+		<div className={ `app-new-letter-cont ${(newLettersOpen) ? 'open' : ''}` }>
 			{
 				PopUp()
 			}

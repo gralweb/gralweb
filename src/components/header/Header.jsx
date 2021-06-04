@@ -1,10 +1,10 @@
 // Dependecias
-import React, { useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 
 // Componentes
-import HeaderBtnMenu from './HeaderBtnMenu';
-import HeaderNav from './HeaderNav';
+import HeaderBtnMenu from './HeaderBtnMenu'
+import HeaderNav from './HeaderNav'
 
 import { ASSETS_URL } from './../constans'
 
@@ -27,13 +27,13 @@ const Header = ({ location, tema, menuOpen, onClick }) => {
     )
 
     useEffect(() => {
-       handleTemaBody()
+        handleTemaBody()
     }, [handleTemaBody])
 
 
     return (
         <header id='app-header' className='app-header'>
-        	<nav className='app-header-nav'>
+            <nav className='app-header-nav'>
 
                 <div className='app-nav-locacion'>
                     <p className='app-location-item app-logo-cat'>
@@ -67,7 +67,7 @@ const Header = ({ location, tema, menuOpen, onClick }) => {
 
             </nav>
         </header>
-    );
+    )
 }
 
-export default Header;
+export default Header
