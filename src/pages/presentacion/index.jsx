@@ -4,8 +4,8 @@ import { ContextApp } from './../../store'
 // Componentes
 import LoaderApp from './../../components/LoaderApp'
 import PopUpConexion from './../../components/PopUpConexion'
-import RenderPresentacionData from './RenderPresentacionData'
-import FetchPresentacionCartsData from './FetchPresentacionCartsData'
+import RenderPresentacionData from './acciones/RenderPresentacionData'
+import FetchPresentacionCartsData from './acciones/FetchPresentacionCartsData'
 
 const RenderPresentacion = ({ nameCart }) => {
 	const { store: { cart, cartImgs }, actions: { addCartImgs, addCart } } = useContext(ContextApp)
@@ -21,13 +21,11 @@ const RenderPresentacion = ({ nameCart }) => {
 
 	const zoomImgList = document.querySelectorAll('.app-vista-cont-fotos .zoom')
 
-	const loader = () => {
-		return (
-			(conexionError) ? 
-			<PopUpConexion active={conexionError} /> :
-			LoaderApp()
-		)
-	}
+	const loader = () => (
+		(conexionError) ? 
+		<PopUpConexion active={conexionError} /> :
+		LoaderApp()
+	)
 
 	const fetchData = useCallback(
 		() => {
@@ -88,11 +86,16 @@ const RenderPresentacion = ({ nameCart }) => {
 			document.querySelector('body').classList.remove('zoom')
 		}
 
-	}, [ cart, cartImgs, nameCart, fetchData, zoomOpen, zoomImgList, conexionError, countErr ])
+	}, [ cart, nameCart, fetchData, zoomOpen, zoomImgList, conexionError, countErr ])
+
+	if (typeof cart[nameCart] !== 'object' 
+		||
+		typeof cartImgs[nameCart] !== 'object'
+	) {
+		return loader()
+	}
 
 	return (
-		(typeof cart[nameCart] !== 'object' || typeof cartImgs[nameCart] !== 'object') ?
-		loader() :
 		RenderPresentacionData(
 			{ datos: cart[nameCart], fotos: cartImgs[nameCart] },
 			scaleAnim, zoomOpen, zoomHandleOpen
