@@ -5,23 +5,21 @@ import { ContextApp } from './../../store'
 import LoaderApp from './../../components/LoaderApp'
 import Paginacion from './../../components/Paginacion'
 import PopUpConexion from './../../components/PopUpConexion'
-import FetchPortafolioCarts from './FetchPortafolioCarts'
-import RenderPortafolioData from './RenderPortafolioData'
+import FetchPortafolioCarts from './acciones/FetchPortafolioCarts'
+import RenderPortafolioData from './acciones/RenderPortafolioData'
 
 const RenderPortafolio = ({ headerLocation, pageTarget }) => {
-	const { store: { carts, numPages }, actions } = useContext(ContextApp)
+	const { store: { carts, numPages }, actions: { addCarts, addNumPages } } = useContext(ContextApp)
 
 	const [ scaleAnim, setScaleAnim ] = useState(false)
 	const [ conexionError, setConexionError ] = useState(false)
 	const [ countErr, setCountErr ] = useState(0)
 
-	const loader = () => {
-		return (
-			(conexionError) ? 
-			<PopUpConexion active={conexionError} /> :
-			LoaderApp()
-		)
-	}
+	const loader = () => (
+		(conexionError) ? 
+		<PopUpConexion active={conexionError} /> :
+		LoaderApp()
+	)
 
 	const fetchData = useCallback(
 		() => {
@@ -36,8 +34,8 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 
 					transfData[parseInt(pageTarget)] = datos
 
-					actions.addCarts(transfData)
-					actions.addNumPages(parseInt(pages))
+					addCarts(transfData)
+					addNumPages(parseInt(pages))
 				}
 			
 			}).catch(r => {
@@ -45,7 +43,7 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 				setConexionError(!conexionError)
 			})
 		},
-		[ actions, pageTarget, countErr, conexionError ],
+		[ pageTarget, countErr, conexionError, addCarts, addNumPages ],
 	)
 
 	useEffect(() => {
@@ -83,7 +81,6 @@ const RenderPortafolio = ({ headerLocation, pageTarget }) => {
 			<Paginacion 
 				paginas={numPages}
 				pageTarget={parseInt(pageTarget)}
-				// handleClick={restoreDataCarts} 
 			/>
 		</div>
 	)
