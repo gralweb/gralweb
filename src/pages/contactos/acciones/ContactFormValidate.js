@@ -1,19 +1,23 @@
 import contactFormSend from './ContactFormSend'
 
-const contactFormValidate = datos => {
+const contactFormValidate = ({ nombre, correo, msj  }) => {
 	const datosErr = []
 
-	if (!datos.nombre) {
+	if (!nombre) {
 		datosErr.push('nombre')
 	}
 
-	if (!datos.correo) {
+	if (!correo) {
+		
 		datosErr.push('correo')
-	} else if (!datos.correo.includes('@')) {
+
+	} else if (!correo.includes('@')) {
+
 		datosErr.push('correoInvalid')
+	
 	}
 
-	if (!datos.msj) {
+	if (!msj) {
 		datosErr.push('mensaje')
 	}
 
