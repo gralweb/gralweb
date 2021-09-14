@@ -23,7 +23,7 @@
     --color-font-claro: #fafaface;
 
     --color-font-medio: #9d9d9d;
-    --tipo-font: Helvetica, 'Maven Pro', 'Open Sans';
+    --tipo-font: 'urbanist-regular', 'rubik-regular', 'poppins-regular', 'Open Sans';
 
     --radius-serv: 10px 10px 0 0;
     --transition-animation: cubic-bezier(0.25, 0.1, 0.25, 1);

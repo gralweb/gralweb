@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'rubik-regular';
+	src: url('./text-fonts/rubik/Rubik-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'urbanist-regular';
+	src: url('./text-fonts/urbanist/Urbanist-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'poppins-regular';
+	src: url('./text-fonts/poppins/Poppins-Regular.ttf');
+}

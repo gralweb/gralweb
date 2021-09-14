@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// Importando fuentes personalizadas
+import './dependencias/textFonts.css';
+
 import './index.css';
 import Gralweb from './Gralweb';
 // import sW from './sW';

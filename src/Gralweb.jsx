@@ -15,7 +15,7 @@ import FloatBtn from './components/floatBtn/FloatBtn'
 
 // Styles
 import './dependencias/icofont.min.css'
-import './Gralweb.css'
+import './dependencias/Gralweb.css'
 // Themes
 import './dependencias/themeClaro.css'
 import './dependencias/themeOscuro.css'
