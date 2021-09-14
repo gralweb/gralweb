@@ -1312,15 +1312,19 @@ body.zoom {
 
     .app-vista-cont-fotos {
         margin-top: 10px;
+        max-width: 500px
     }
 
     .app-vista {
         margin: 5px auto;
     }
 
-    .app-vista-cont-titulo,
-    .app-vista-cont-texto {
+    .app-vista-cont-titulo {
         width: auto;
+    }
+
+    .app-vista-cont-texto {
+        max-width: 270px;
     }
 
     .app-form-line {
