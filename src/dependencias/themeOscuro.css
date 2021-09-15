@@ -80,8 +80,16 @@ body.oscuro .app-vista-cont-texto {
     color: var(--color-font-claro);
 }
 
-body.oscuro .app-zoom-cont-close-btn .app-btn-menu {
+body.oscuro .app-zoom-cont-close-btn .app-btn-menu-dark {
     background-color: var(--btn-hover-oscuro);
+}
+
+body.oscuro .app-zoom-cont-close-btn .app-btn-menu-dark i {
+    color: var(--color-font-medio);
+}
+
+body.oscuro .app-zoom-cont-close-btn .app-btn-menu-dark:hover i {
+    color: var(--color-font-claro);
 }
 
 /* Contactos */
@@ -181,5 +189,10 @@ body.oscuro #app-main-loader.process {
     /* Boton de Hamburguesa del menu - animacion */
     body.oscuro .app-btn-menu {
         background-color: var(--btn-hover-oscuro);
+    }
+
+    /* Boton de cerrar el zoom */
+    body.oscuro .app-zoom-cont-close-btn .app-btn-menu-dark i {
+        color: var(--color-font-claro);
     }
 }

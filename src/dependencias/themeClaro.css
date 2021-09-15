@@ -80,8 +80,16 @@ body.claro .app-vista-cont-texto {
     color: var(--color-font-oscuro);
 }
 
-body.claro .app-zoom-cont-close-btn .app-btn-menu {
+body.claro .app-zoom-cont-close-btn .app-btn-menu-dark {
     background-color: var(--btn-hover-claro);
+}
+
+body.claro .app-zoom-cont-close-btn .app-btn-menu-dark i {
+    color: var(--color-font-medio);
+}
+
+body.claro .app-zoom-cont-close-btn .app-btn-menu-dark:hover i {
+    color: var(--color-font-oscuro);
 }
 
 /* Contactos */

@@ -421,6 +421,10 @@ body.zoom {
 
 /* Contenido del Boton para cerrar el Contenedor del Zoom */
 .app-zoom-cont-close-btn {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
     display: flex;
     width: 100%;
     height: 50px;
@@ -430,15 +434,15 @@ body.zoom {
 
 .app-btn-menu-dark {
     margin: 0 auto 10px auto;
+    box-shadow: 0px 1px 20px -3px var(--sombra-oscuro);
 }
 
 .app-btn-menu-dark i {
     transition: all 300ms var(--transition-animation);
-    color: var(--color-font-medio);
-}
-
-.app-btn-menu-dark:hover i {
-    color: var(--color-font-oscuro);
+    -webkit-transition: all 300ms var(--transition-animation);
+    -moz-transition: all 300ms var(--transition-animation);
+    -ms-transition: all 300ms var(--transition-animation);
+    -o-transition: all 300ms var(--transition-animation);
 }
 
 /* Vista normal de la presentacion */
