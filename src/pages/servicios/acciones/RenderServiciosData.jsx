@@ -9,6 +9,8 @@ const RenderServiciosData = ( serviciosCarts, scaleAnim ) => (
 			scaleAnim={ scaleAnim ? 'app-cont-item-scale' : null }
 			key={ serv.plan }
 			plan={ serv.plan }
+			type={ serv.type }
+			unique_text={ serv.text }
 			estilo={ serv.estilo }
 			precio={ serv.precio }
 			serUno={ serv.ser_1 }

@@ -801,13 +801,24 @@ body.zoom {
     display: block;
     padding: 10px;
 }
-
+.app-item-serv-text,
 .app-item-serv-cont ul {
     width: 200px;
     margin: auto;
     border-radius: 5px;
 }
 
+.app-item-serv-text p {
+    display: block;
+    padding: 22px 20px;
+    font-size: .8rem;
+    line-height: 20px;
+    text-align: left;
+    letter-spacing: 1px;
+    color: var(--color-claro);
+}
+
+/* Servicios Caracterizados */
 .app-serv-basico ul {
     background: #ffd156;
     background: -webkit-linear-gradient(140deg, #ffd156,#ff00c6);
