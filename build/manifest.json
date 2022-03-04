@@ -1,0 +1,41 @@
+{
+  "short_name": "Gralweb",
+  "name": "Gralweb",
+  "icons": [
+    {
+      "src": "./logo/pwa/claro/16x16.png",
+      "type": "image/x-icon",
+      "sizes": "16x16"
+    },
+    {
+      "src": "./logo/pwa/claro/24x24.png",
+      "type": "image/png",
+      "sizes": "24x24"
+    },
+    {
+      "src": "./logo/pwa/claro/32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "./logo/pwa/claro/64x64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "./logo/pwa/claro/192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./logo/pwa/claro/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#123987",
+  "background_color": "#fafafa"
+}
