@@ -1,0 +1,31 @@
+<!-- EmailJs -->
+    <script 
+      type="text/javascript" 
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("T32LeETNhcodcrHcV");
+       })();
+    </script>
+
+const api_service = "service_354mosf"
+const api_template = "template_ip8z07x"
+const api_key = "T32LeETNhcodcrHcV"
+
+const api_params = {
+	from_name: "Gralweb - Contact",
+	to_name: "Gralweb",
+	message: "Mensaje",
+	reply_to: "georgealviarez21@gmail.com",
+}
+
+
+const api_params = {
+		from_name: `Gralweb - Contact - ${datos.nombre} ${datos.apellido}`,
+		to_name: "Gralweb",
+		message: datos.msj,
+		reply_to: datos.correo,
+	}
+
+emailjs.send(api_service, api_template, api_params, api_key);
