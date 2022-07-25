@@ -20,12 +20,4 @@ const api_params = {
 	reply_to: "georgealviarez21@gmail.com",
 }
 
-
-const api_params = {
-		from_name: `Gralweb - Contact - ${datos.nombre} ${datos.apellido}`,
-		to_name: "Gralweb",
-		message: datos.msj,
-		reply_to: datos.correo,
-	}
-
 emailjs.send(api_service, api_template, api_params, api_key);

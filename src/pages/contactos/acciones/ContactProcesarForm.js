@@ -12,13 +12,20 @@ const procesarForm = (e, handleConexion) => {
 		msj: formulario[4].value,
 	}
 
+	const api_params = {
+		from_name: `Gralweb - Contact - ${datos.nombre}`,
+		to_name: "Gralweb",
+		message: datos.msj,
+		reply_to: datos.correo,
+	}
+
 	const datosValid = contactFormValidate(datos)
 
 	if (datosValid.length) {
-		contactFormValidateAlert(datosValid, formulario, datos)	
+		contactFormValidateAlert(datosValid, formulario, api_params)	
 	} else {
-		contactFormValidateAlert(datosValid, formulario, datos).then(resp => {
-			if (resp.estado === 'mail_enviado') {
+		contactFormValidateAlert(datosValid, formulario, api_params).then(resp => {
+			if (resp === 200) {
 				for (let i = 0; i < formulario.length; i++) {
 					formulario[i].parentElement.parentElement.classList.add('processValid')
 				}
@@ -49,42 +56,11 @@ const procesarForm = (e, handleConexion) => {
 
 				// Quitando el Loader de envio del mensaje
 				formulario.lastChild.classList.remove('process')
-			} else if (resp.estado === 'err_datos') {
-				if (resp.nombre === '') {
-					formulario[0].parentElement.parentElement.classList.add('error')
-					formulario[0].parentElement.parentElement.classList.add('focus-in-te')
-				}
-
-				if (resp.correo === '') {
-					formulario[2].parentElement.parentElement.classList.add('error')
-					formulario[2].parentElement.parentElement.classList.add('focus-in-te')
-				}
-
-				if (resp.msj === '') {
-					formulario[4].parentElement.parentElement.classList.add('error')
-					formulario[4].parentElement.parentElement.classList.add('focus-in-te')
-				}
-
+			} else {
+				handleConexion()
 				formulario[5].parentElement.classList.remove('process')
-
-				// Intercambiando los Iconos de Send por el de Error
-				formulario[5].children[0].classList.add('process')
-				formulario[5].children[2].classList.add('process')
-
-				// Delay para quitar los estilos de Validacion Incorrecta
-				setTimeout(() => {
-					// Intercambiando los Iconos de Error por el de Send
-					formulario[5].children[0].classList.remove('process')
-					formulario[5].children[2].classList.remove('process')
-				}, 1500)
-
-				// Quitando el Loader de envio del mensaje
 				formulario.lastChild.classList.remove('process')
 			}
-		}).catch(err => {
-			handleConexion()
-			formulario[5].parentElement.classList.remove('process')
-			formulario.lastChild.classList.remove('process')
 		})
 	}
 }

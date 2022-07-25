@@ -1,18 +1,16 @@
-import { API_URL_CONTACTOS } from './../../../components/constans'
+import emailjs from '@emailjs/browser'
 
-const contactFormSend = ({ nombre, apellido, correo, tlf, msj }) => (
-	fetch(
-		API_URL_CONTACTOS,
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: `nombre=${ nombre }&apellido=${ apellido }&correo=${ correo }&tlf=${ tlf }&msj=${ msj }`
-		}
-	).then(resp => (
-		resp.json()
-	))
+const api_key = "T32LeETNhcodcrHcV"
+const api_service = "service_354mosf"
+const api_template = "template_ip8z07x"
+
+const contactFormSend = api_params => (
+	emailjs
+	.send(api_service, api_template, api_params, api_key)
+	.then(response => (
+       		response.status
+		)
+    )
 )
 
 export default contactFormSend
