@@ -1,12 +1,7 @@
-import {  API_URL_CARTS  } from './../../../components/constans'
+import DATA from './../../../store/db.js'
 
-const FetchPortafolioCarts = page => {
-	const url = (page) ? `${API_URL_CARTS}?p=${page}` : API_URL_CARTS
-	return (
-		fetch(url).then( dataCrud => (
-			dataCrud.json()
-		))
-	)
-}
+const FetchPortafolioCarts = () => (
+	DATA.articulos
+)
 
 export default FetchPortafolioCarts

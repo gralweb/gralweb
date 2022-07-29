@@ -1,18 +1,15 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react'
+import { useState, useEffect, useCallback, useContext } from 'react'
 import { ContextApp } from './../../store'
 
 // Componentes
 import LoaderApp from './../../components/LoaderApp'
-import PopUpConexion from './../../components/PopUpConexion'
 import RenderPresentacionData from './acciones/RenderPresentacionData'
 import FetchPresentacionCartsData from './acciones/FetchPresentacionCartsData'
 
-const RenderPresentacion = ({ nameCart }) => {
+const RenderPresentacion = ({ titleCart }) => {
 	const { store: { cart, cartImgs }, actions: { addCartImgs, addCart } } = useContext(ContextApp)
 
 	const [ scaleAnim, setScaleAnim ] = useState(false)
-	const [ conexionError, setConexionError ] = useState(false)
-	const [ countErr, setCountErr ] = useState(0)
 	const [ zoomOpen, setZoomOpen ] = useState(false)
 
 	const zoomHandleOpen =() => {
@@ -21,58 +18,36 @@ const RenderPresentacion = ({ nameCart }) => {
 
 	const zoomImgList = document.querySelectorAll('.app-vista-cont-fotos .zoom')
 
-	const loader = () => (
-		(conexionError) ? 
-		<PopUpConexion active={conexionError} /> :
-		LoaderApp()
-	)
+	const fetchData = useCallback(() => {
+		const data = FetchPresentacionCartsData( titleCart )
+		const { datos, fotos } = data
+		
+		const datosTrans = {}
+		const fotosTrans = {}
 
-	const fetchData = useCallback(
-		() => {
-			FetchPresentacionCartsData( nameCart )
-			.then(data => {
-				const { datos, fotos } = data
-				
-				const datosTrans = {}
-				const fotosTrans = {}
+		const transFunct = typeTrans => {
+			if (typeTrans === 'fotos') {
+				fotosTrans[datos.titulo] = fotos
+				addCartImgs(fotosTrans)
+			} else {
+				datosTrans[datos.titulo] = datos
+				addCart(datosTrans)
+			}
+		}
 
-				const transFunct = typeTrans => {
-					if (typeTrans === 'fotos') {
-						fotosTrans[datos.titulo] = fotos
-						addCartImgs(fotosTrans)
-					} else {
-						datosTrans[datos.titulo] = datos
-						addCart(datosTrans)
-					}
-				}
-
-				// Ejecutamos para guardar los datos
-				transFunct()
-				// Ejecutamos para guardar las fotos
-				transFunct('fotos')
-			})
-			.catch(err => {
-				setCountErr(countErr + 1)
-				setConexionError(!conexionError)
-			})
-		},
-		[ nameCart, countErr, conexionError, addCart, addCartImgs ],
+		// Ejecutamos para guardar los datos
+		transFunct()
+		// Ejecutamos para guardar las fotos
+		transFunct('fotos')
+	},
+		[ titleCart, addCart, addCartImgs ],
 	)
 
 	useEffect(() => {
 		setScaleAnim(true)
 
-		if (typeof cart[nameCart] !== 'object') {
-			if (countErr < 3) {
-				fetchData()
-			}
-		}
-
-		if (conexionError && (countErr === 2)) {
-			setTimeout(() => {
-				fetchData()
-				setCountErr(0)
-			}, 30000)
+		if (typeof cart[titleCart] !== 'object') {
+			fetchData()
 		}
 
 		if (zoomOpen) {
@@ -86,18 +61,18 @@ const RenderPresentacion = ({ nameCart }) => {
 			document.querySelector('body').classList.remove('zoom')
 		}
 
-	}, [ cart, nameCart, fetchData, zoomOpen, zoomImgList, conexionError, countErr ])
+	}, [ cart, titleCart, fetchData, zoomOpen, zoomImgList ])
 
-	if (typeof cart[nameCart] !== 'object' 
+	if (typeof cart[titleCart] !== 'object' 
 		||
-		typeof cartImgs[nameCart] !== 'object'
+		typeof cartImgs[titleCart] !== 'object'
 	) {
-		return loader()
+		return LoaderApp()
 	}
 
 	return (
 		RenderPresentacionData(
-			{ datos: cart[nameCart], fotos: cartImgs[nameCart] },
+			{ datos: cart[titleCart], fotos: cartImgs[titleCart] },
 			scaleAnim, zoomOpen, zoomHandleOpen
 		)
 	)

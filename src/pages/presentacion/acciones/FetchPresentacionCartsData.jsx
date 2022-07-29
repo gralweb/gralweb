@@ -1,10 +1,18 @@
-import { API_URL_PRESENTACION } from './../../../components/constans'
+import DATA from './../../../store/db.js'
 
-const FetchPresentacionCartsData = nameCart => (	
-	fetch( `${ API_URL_PRESENTACION }?titulo=${ nameCart }` )
-	.then( dataCrud => (
-		dataCrud.json()
-	))
-)
+const FetchPresentacionCartsData = titleCart => {
+	const searchArticulo = () => (
+		DATA.articulos.find(art => (
+			art.titulo === titleCart
+		))
+	)
+
+	const crud = {
+		"datos": searchArticulo(),
+		"fotos": DATA.screenshot[titleCart]
+	}
+	
+	return crud
+}
 
 export default FetchPresentacionCartsData

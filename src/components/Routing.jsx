@@ -38,7 +38,7 @@ const Routing = ({ handleLocationHeader }) => (
 		<Route
 			exact
 			path='/portafolio/:name'
-			render={ routeProps => <RenderPresentacion nameCart={ routeProps.match.params.name } /> }
+			render={ routeProps => <RenderPresentacion titleCart={ routeProps.match.params.name } /> }
 		/>
 		<Route
 			exact

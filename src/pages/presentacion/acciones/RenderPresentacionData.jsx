@@ -5,7 +5,7 @@ import { ASSETS_URL } from './../../../components/constans';
 import RenderPresentacionImg from './RenderPresentacionImg'
 
 const RenderPresentacionData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zoomHandleOpen) => {
-	const { titulo, descripcion } = datos
+	const { titulo, extracto } = datos
 	const scaleAnim = scaleAnimBoolean ? 'app-cont-item-scale' : null
 	document.title = `${document.title.slice(0, 9)} ${titulo}`
 
@@ -43,7 +43,7 @@ const RenderPresentacionData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zo
 			<div className={`app-vista-cont-texto ${scaleAnim}`}>
 				<p>
 					{
-						descripcion
+						extracto
 					}
 				</p>
 			</div>
