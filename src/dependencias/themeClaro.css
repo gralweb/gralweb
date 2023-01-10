@@ -133,7 +133,7 @@ body.claro .app-float-btn-cont {
 
 /* Boton Flotante para cambiar el Tema */
 body.claro .app-float-btn-theme .app-float-btn-theme-circle {
-    animation: FloatBtnClaro 700ms linear both;
+    left: -1%;
     background-color: var(--color-claro);
 }
 

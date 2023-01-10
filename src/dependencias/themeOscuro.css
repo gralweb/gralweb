@@ -130,7 +130,7 @@ body.oscuro .app-float-btn-cont {
 
 /* Boton Flotante para cambiar el Tema */
 body.oscuro .app-float-btn-theme .app-float-btn-theme-circle {
-    animation: FloatBtnOscuro 700ms linear both;
+    left: 45%;
     background-color: var(--color-oscuro);
 }
 

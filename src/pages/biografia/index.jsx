@@ -27,7 +27,10 @@ const RenderBiografia = ({ headerLocation }) => {
                     className={`app-bio-cont-text ${animationLoad ? 'app-bio-cont-text-anim' : ''}`}
                 >
                 	<p className='app-bio-text'>
-                		Hola, soy George Alviarez, desarrollador web fullstack jr. Vivo en Venezuela y tengo 21 años de edad. Me gusta aprender nuevas tecnologias que ayudan a mejorar el flujo de trabajo. Soy una persona proactiva, organizada, autodidacta y con una gran motivación, soy capaz de adaptarme a cualquier circunstancia y dar siempre lo mejor de mí, al mismo tiempo que me esfuerzo por trabajar en equipo y fomentar valores como los del compañerismo.
+                		Hola, soy George Alviarez, desarrollador web fullstack jr. Vivo en Venezuela y tengo 21 años de edad.
+                	</p>
+                	<p className='app-bio-text'>
+						Me gusta aprender nuevas tecnologias que ayudan a mejorar el flujo de trabajo. Soy una persona proactiva, organizada, autodidacta y con una gran motivación, soy capaz de adaptarme a cualquier circunstancia y dar siempre lo mejor de mí, al mismo tiempo que me esfuerzo por trabajar en equipo y fomentar valores como los del compañerismo.
                 	</p>
                     {/*<p className='app-bio-text'>
                         Hola, mi nombre es George Alviarez y soy desarrollador web. Soy de Venezuela - Estado Lara y tengo actualmente 19 años de edad. Me gustan los comics, el baloncesto, los video juegos y más que todo la tecnología.
@@ -35,9 +38,10 @@ const RenderBiografia = ({ headerLocation }) => {
                     <p className='app-bio-text'>
                         Comencé en el mundo del desarrollo web a los 17 años y desde entonces sólo he estado aprendiendo sobre el tema para poder trabajar con esta rama de la tecnología. Hoy en día me siento un 85% capaz de trabajar con ello, el otro 15% meda miedo o nervios porque no tengo experiencia laboral, por esa razón he hecho este portafolio donde muestro algunas de las cosas que he hecho y siento que demuestran el conocimiento que he adquirido en este tiempo.
                     </p>
-                    <p className='app-bio-text'>
+                    */}
+                   	<p className='app-bio-text'>
                        No me considero un experto, pero tengo la capacidad para encontrar soluciones a fallos que se encuentren en el proceso de desarrollo de un sitio web, y siento que siempre hay algo más para aprender en esta rama ya que es muy amplia y se encuentra en constante desarrollo.
-                    </p>*/}
+                    </p>
                 </div>
             </div>
         </div>
