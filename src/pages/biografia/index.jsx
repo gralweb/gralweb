@@ -26,7 +26,10 @@ const RenderBiografia = ({ headerLocation }) => {
                 <div 
                     className={`app-bio-cont-text ${animationLoad ? 'app-bio-cont-text-anim' : ''}`}
                 >
-                    <p className='app-bio-text'>
+                	<p className='app-bio-text'>
+                		Hola, soy George Alviarez, desarrollador web fullstack jr. Vivo en Venezuela y tengo 21 años de edad. Me gusta aprender nuevas tecnologias que ayudan a mejorar el flujo de trabajo. Soy una persona proactiva, organizada, autodidacta y con una gran motivación, soy capaz de adaptarme a cualquier circunstancia y dar siempre lo mejor de mí, al mismo tiempo que me esfuerzo por trabajar en equipo y fomentar valores como los del compañerismo.
+                	</p>
+                    {/*<p className='app-bio-text'>
                         Hola, mi nombre es George Alviarez y soy desarrollador web. Soy de Venezuela - Estado Lara y tengo actualmente 19 años de edad. Me gustan los comics, el baloncesto, los video juegos y más que todo la tecnología.
                     </p>
                     <p className='app-bio-text'>
@@ -34,7 +37,7 @@ const RenderBiografia = ({ headerLocation }) => {
                     </p>
                     <p className='app-bio-text'>
                        No me considero un experto, pero tengo la capacidad para encontrar soluciones a fallos que se encuentren en el proceso de desarrollo de un sitio web, y siento que siempre hay algo más para aprender en esta rama ya que es muy amplia y se encuentra en constante desarrollo.
-                    </p>
+                    </p>*/}
                 </div>
             </div>
         </div>
