@@ -9,6 +9,7 @@ const RenderPortafolioData = ( portafolioData, scaleAnim ) => (
 			key={ cart.id }
 			titulo={ cart.titulo }
 			img={ cart.foto }
+			url={ cart.url }
 			scaleAnim={ scaleAnim ? 'app-cont-item-scale' : null }
 		/>
 	))
