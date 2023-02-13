@@ -299,14 +299,16 @@ body.zoom {
 
 /* Contenido - Imagen de las cartas de los Articulos */
 .app-item-img {
-    max-height: 160px;
-    min-height: 160px;
-    overflow: hidden;
+    width: 100%;
+    height: 160px;
+/*    overflow: hidden;*/
     border-radius: 10px 10px 0 0;
 }
 
 .app-item-img img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* Contenido - Contenedor Titulo/BTN-ver de las cartas de los Articulos */

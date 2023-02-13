@@ -7,7 +7,7 @@ import { ASSETS_URL } from './../../../components/constans'
 const PortafolioCart = ({ scaleAnim, img, titulo, url }) => (
     <div className={ `app-cont-item ${ scaleAnim }` }>
         <figure className='app-item-img'>
-            <img src={ `${ ASSETS_URL }/assets/${ img }` } title={ titulo } alt={ titulo } />
+            <img src={ img } title={ titulo } alt={ titulo } />
         </figure>
 
         <figcaption className='app-item-text'>
