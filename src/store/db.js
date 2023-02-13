@@ -18,6 +18,12 @@ const DATA = {
 			"titulo": "Gralweb Traffic",
 			"url": "https://gralweb-traffic.netlify.app"
 		},
+		{
+			"id": 4,
+			"foto": "https://i.postimg.cc/7GSwYn2v/slider-min.png",
+			"titulo": "Gralweb Slider",
+			"url": "https://gralweb-slider.netlify.app"
+		}
 	],
 
 	"screenshot": {
