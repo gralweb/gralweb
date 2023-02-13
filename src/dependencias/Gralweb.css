@@ -1324,6 +1324,10 @@ body.zoom {
 }
 
 @media screen and (max-width: 520px) {
+    .app-main-cont {
+        justify-content: space-around;
+    }
+    
     .app-zoom-foto {
         max-height: calc(100vh - 10px);
         max-width: calc(100vw - 10px);
